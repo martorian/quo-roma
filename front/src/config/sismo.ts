@@ -2,10 +2,10 @@ export const sismoConfig = {
     appId: "0xd05e9058bbfb978abc225e17caf2fee4",
 }
 
-enum Channels {
-    COOKING = "COOKING",
+export enum Channels {
+    COOKING = "cooking",
 }
 
 export const groupIds = {
-    [Channels.COOKING]: "0x3a180f3972de903B6201fe87eF696eDFf5bab8aA",
+    [Channels.COOKING]: "0xb41869ce2f5e5266808ffae60f27992e",
 }
