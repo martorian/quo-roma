@@ -1,0 +1,65 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Daofactory
+    network: mumbai
+    source:
+      abi: DaoFactory
+      address: "0x9A9944a8B67Ab4D35f25D49a30F7cAcC89736F8b"
+      startBlock: 40915000
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - DaoCreated
+      abis:
+        - name: DaoFactory
+          file: ./abis/DaoFactory.json
+      eventHandlers:
+        - event: DaoCreated(uint256,string,uint256,string)
+          handler: handleDaoCreated
+      file: ./src/dao-id.ts
+  - kind: ethereum
+    name: QuoromaID
+    network: mumbai
+    source:
+      abi: QuoromaID
+      address: "0xe36f3FFd23E639c2324116d64Cce557B8a51165E"
+      startBlock: 40915000
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - CidUpdated
+        - DelegateAdded
+        - DelegateRemoved
+        - Mint
+        - MintFeeUpdated
+        - MintStatusUpdated
+        - ShortHandlesMaxPriceUpdated
+        - Transfer
+      abis:
+        - name: QuoromaID
+          file: ./abis/QuoromaID.json
+      eventHandlers:
+        - event: CidUpdated(indexed uint256,string)
+          handler: handleCidUpdated
+        - event: DelegateAdded(uint256,address)
+          handler: handleDelegateAdded
+        - event: DelegateRemoved(uint256,address)
+          handler: handleDelegateRemoved
+        - event: Mint(indexed address,uint256,string,uint256,uint256)
+          handler: handleMint
+        - event: MintFeeUpdated(uint256)
+          handler: handleMintFeeUpdated
+        - event: MintStatusUpdated(uint8)
+          handler: handleMintStatusUpdated
+        - event: ShortHandlesMaxPriceUpdated(uint256)
+          handler: handleShortHandlesMaxPriceUpdated
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/quoroma-id.ts
