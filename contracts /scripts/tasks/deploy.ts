@@ -35,4 +35,25 @@ task('deploy', 'Deploy all contracts')
     })
     setDeploymentAddress(network.name, 'QuoromaID', quoromaID.address)
     //************************************/
+
+    //@note **************** UPGRADABLE SECTION - DaoFactory ******************/
+
+    const DaoFactory = await ethers.getContractFactory('DaoFactory')
+    const daoFactoryArgs: [] = []
+    // @ts-ignore: upgrades is imported in hardhat.config.ts - HardhatUpgrades
+    const daoFactory = await (upgrades as HardhatUpgrades).deployProxy(DaoFactory, daoFactoryArgs, {
+      timeout: 0,
+      pollingInterval: 20000,
+    })
+    if (verify) {
+      await verifyAddress(daoFactory.address)
+    }
+    const daoFactoryImplementationAddress = await // @ts-ignore
+    (upgrades as HardhatUpgrades).erc1967.getImplementationAddress(daoFactory.address)
+    console.log('DaoFactory addresses:', {
+      proxy: daoFactory.address,
+      implementation: daoFactoryImplementationAddress,
+    })
+    setDeploymentAddress(network.name, 'DaoFactory', daoFactory.address)
+    //************************************/
   })

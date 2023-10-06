@@ -5,6 +5,26 @@
       "address": "0xC15504db35c25f5526EdBa2EdBDF8c9b2Eb99ad1",
       "txHash": "0xe7ffea031c10ec7d50d713b7717758d9cf3714f37570458c26694ba00b29ada2",
       "kind": "uups"
+    },
+    {
+      "address": "0x4999cfC86acBd0ce311373ffF496c360969F80D2",
+      "txHash": "0x3254739038e872fa843a6a7764bbd56acb4c48ad3081f33d2e3fdfac4171df45",
+      "kind": "uups"
+    },
+    {
+      "address": "0x8eD5e478cA9846765d1E27eD2aeC7a5b3Dd842e8",
+      "txHash": "0x60a6571689de99b30f467a1597e93d40724211903ada409737338f89c8ed27ea",
+      "kind": "uups"
+    },
+    {
+      "address": "0x6619BaBF91F440E6cEd7C3e789b1bD12b64921bA",
+      "txHash": "0x04e1c6d96ad6843e02816cc0f29d16f9a6633c8dfd3e6881a029d5c0ad2954b9",
+      "kind": "uups"
+    },
+    {
+      "address": "0x0ee214b4d5b1b9967a339F2947222d8F339C68a4",
+      "txHash": "0xf9cfdf1ab499757998709e2a37ca6d9d8c0e493f2e0b12f96790564ae46ba29c",
+      "kind": "uups"
     }
   ],
   "impls": {
@@ -347,6 +367,199 @@
               }
             ],
             "numberOfBytes": "128"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        },
+        "namespaces": {}
+      }
+    },
+    "1b1f6e77b7989e075c336a6a89cfb582be5f209097711616962c64ff8914cec0": {
+      "address": "0xaa0ce9A6B21A42D4af17b9d5882b991CCa86b111",
+      "txHash": "0x524330b8530ea755a5362171bbc867683264d5a9d4607417ef5ddcbe25bafa98",
+      "layout": {
+        "solcVersion": "0.8.17",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:63",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:68"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ERC1967UpgradeUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol:169"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "UUPSUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol:111"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "101",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ContextUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:36"
+          },
+          {
+            "label": "_owner",
+            "offset": 0,
+            "slot": "151",
+            "type": "t_address",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "152",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:94"
+          },
+          {
+            "label": "daos",
+            "offset": 0,
+            "slot": "201",
+            "type": "t_mapping(t_uint256,t_struct(Dao)4355_storage)",
+            "contract": "DaoFactory",
+            "src": "contracts/DaoFactory.sol:40"
+          },
+          {
+            "label": "whitelists",
+            "offset": 0,
+            "slot": "202",
+            "type": "t_mapping(t_uint256,t_mapping(t_address,t_bool))",
+            "contract": "DaoFactory",
+            "src": "contracts/DaoFactory.sol:48"
+          },
+          {
+            "label": "pendingWithdrawals",
+            "offset": 0,
+            "slot": "203",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "DaoFactory",
+            "src": "contracts/DaoFactory.sol:53"
+          },
+          {
+            "label": "daoId",
+            "offset": 0,
+            "slot": "204",
+            "type": "t_struct(Counter)2363_storage",
+            "contract": "DaoFactory",
+            "src": "contracts/DaoFactory.sol:58"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]",
+            "numberOfBytes": "1568"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_mapping(t_address,t_bool))": {
+            "label": "mapping(uint256 => mapping(address => bool))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_struct(Dao)4355_storage)": {
+            "label": "mapping(uint256 => struct DaoFactory.Dao)",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Counter)2363_storage": {
+            "label": "struct CountersUpgradeable.Counter",
+            "members": [
+              {
+                "label": "_value",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_struct(Dao)4355_storage": {
+            "label": "struct DaoFactory.Dao",
+            "members": [
+              {
+                "label": "id",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "name",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "accessFee",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "dataUri",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "4"
+              }
+            ],
+            "numberOfBytes": "160"
           },
           "t_uint256": {
             "label": "uint256",
