@@ -1,12 +1,14 @@
 import { HardhatUserConfig } from 'hardhat/config'
 import 'hardhat-contract-sizer'
 import '@nomicfoundation/hardhat-toolbox'
+import 'solidity-coverage'
+import '@openzeppelin/hardhat-upgrades'
 
 import './scripts/tasks/deploy'
 import './scripts/tasks/newtask'
+import './scripts/tasks/upgrade-proxy'
 
 import dotenv from 'dotenv'
-import { log } from 'console'
 
 dotenv.config()
 
@@ -101,7 +103,7 @@ const config: HardhatUserConfig = {
     alphaSort: true,
     disambiguatePaths: false,
     runOnCompile: true,
-    only: ['Storage'],
+    only: ['QuoromaID'],
   },
 }
 

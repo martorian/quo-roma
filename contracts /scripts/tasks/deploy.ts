@@ -1,6 +1,7 @@
 import { setDeploymentAddress } from '../../.deployment/deploymentManager'
 import { task } from 'hardhat/config'
 import { verifyAddress } from '../../utils/verifyAddress'
+import { HardhatUpgrades } from '@openzeppelin/hardhat-upgrades'
 
 task('deploy', 'Deploy all contracts')
   .addFlag('verify', 'verify contracts on etherscan')
@@ -14,16 +15,24 @@ task('deploy', 'Deploy all contracts')
     const balance = await ethers.provider.getBalance(deployer.address)
     console.log('Balance: ', ethers.utils.formatEther(balance))
 
-    const Storage = await ethers.getContractFactory('Storage')
-    const storageArgs: [string] = ['Initial message']
-    const storage = await Storage.deploy(...storageArgs)
+    //@note **************** UPGRADABLE SECTION - QuoromaID ******************/
 
-    await storage.deployed()
-
+    const QuoromaID = await ethers.getContractFactory('QuoromaID')
+    const quoromaIDArgs: [] = []
+    // @ts-ignore: upgrades is imported in hardhat.config.ts - HardhatUpgrades
+    const quoromaID = await (upgrades as HardhatUpgrades).deployProxy(QuoromaID, quoromaIDArgs, {
+      timeout: 0,
+      pollingInterval: 20000,
+    })
     if (verify) {
-      await verifyAddress(storage.address, storageArgs)
+      await verifyAddress(quoromaID.address)
     }
-
-    console.log('Deployed Storage at', storage.address)
-    setDeploymentAddress(network.name, 'Storage', storage.address)
+    const quoromaIDImplementationAddress = await // @ts-ignore
+    (upgrades as HardhatUpgrades).erc1967.getImplementationAddress(quoromaID.address)
+    console.log('QuoromaID addresses:', {
+      proxy: quoromaID.address,
+      implementation: quoromaIDImplementationAddress,
+    })
+    setDeploymentAddress(network.name, 'QuoromaID', quoromaID.address)
+    //************************************/
   })

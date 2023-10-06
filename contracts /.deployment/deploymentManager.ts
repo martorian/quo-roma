@@ -1,6 +1,6 @@
 import { loadJSON, saveJSON } from '../utils/files'
 
-export const CONTRACT_NAMES = ['ChannelID', 'TalentLayerID'] as const
+export const CONTRACT_NAMES = ['QuoromaID'] as const
 
 export type ContractName = (typeof CONTRACT_NAMES)[number]
 
