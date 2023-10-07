@@ -13,8 +13,8 @@ import { CreateNewProposal } from '@/components/proposal/create-new-proposal';
 const PROPOSALS = [
     {
         id: 1,
-        title: 'Proposal #1',
-        description: 'Aenean lacinia bibendum nulla sed consectetur.',
+        title: 'Raise fund to provide free healthcare to Roma homeless people',
+        description: 'Our creative project, "Healing Hope for the Roma Homeless," is a heartfelt initiative aimed at raising funds to provide free healthcare services to Roma homeless individuals. We believe that access to healthcare is a basic human right, and no one should be denied medical assistance due to their socioeconomic status or ethnicity.',
         votes: [
             {
                 id: 1,
@@ -22,7 +22,7 @@ const PROPOSALS = [
             },
             {
                 id: 2,
-                value: -1,
+                value: 1,
             },
             {
                 id: 3,
@@ -32,9 +32,9 @@ const PROPOSALS = [
     },
     {
         id: 2,
-        title: 'Cras Nibh Ornare',
+        title: 'Free pasta party for everyone',
         description:
-            'Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo.',
+            'Food has the incredible power to transcend cultural boundaries and create connections, and we believe that everyone should have the opportunity to enjoy a delicious and hearty meal without any barriers. Our project is a celebration of inclusivity and togetherness, where pasta becomes the universal language of sharing and caring.',
         votes: [],
     },
 ];
@@ -75,6 +75,7 @@ export default function CommunityPage() {
                     </aside>
                     <main className="flex w-full divide-x divide-x-gray-200 relative items-start justify-end rounded-r-md border border-gray-200">
                         <div className="flex-1 p-4 flex flex-col items-center gap-4">
+                            <p className="p-4 text-lg text-gray-600">Empowering charities through DAOs and NFTs. Join, fund, chat, vote, and make a global impact with transparency and privacy—a new way to engage in causes you care about.</p>
                             {PROPOSALS.map((proposal) => {
                                 return (
                                     <Proposal
