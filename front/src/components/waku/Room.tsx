@@ -33,7 +33,7 @@ export default function Room({messages, nick, commandHandler, channelKey}: RoomP
 
       // Encrypt message
       let SecuritykeyHex = channelKey;
-      
+
       const SecurityKeyBytes = Buffer.from(SecuritykeyHex, 'hex');
       let encrypted_message = encrypt(text, SecurityKeyBytes);
 
@@ -54,34 +54,34 @@ export default function Room({messages, nick, commandHandler, channelKey}: RoomP
     const storePeersLength = orZero(storePeers?.length);
 
     return (
-        <div className="h-full max-h-screen flex flex-col flex-1">
-            <div className="flex justify-between items-center bg-gray-800 text-white p-4">
-                <div>
-                    <div>Peers Connected: {allConnectedLength}</div>
-                    <div className="mt-2">Store: {storePeersLength}</div>
-                    <div>Filter: {filterPeersLength}</div>
-                    <div>Light Push: {lightPushPeersLength}</div>
-                </div>
-                <div>Waku v2 Web Chat</div>
-                <div>
-                    <div className="mt-2">
-                        Peers Discovered:{" "}
-                        {discoveredBootstrapPeers.size + discoveredPeerExchangePeers.size}
-                    </div>
-                    <div>
-                        Bootstrap: {discoveredBootstrapPeers.size} Peer Exchange:{" "}
-                        {discoveredPeerExchangePeers.size}
-                    </div>
-                    <div className="mt-2">
-                        Peers Connected:{" "}
-                        {connectedBootstrapPeers.size + connectedPeerExchangePeers.size}
-                    </div>
-                    <div>
-                        Bootstrap: {connectedBootstrapPeers.size} Peer Exchange:{" "}
-                        {connectedPeerExchangePeers.size}
-                    </div>
-                </div>
-            </div>
+        <div className="relative h-full max-h-[calc(100vw-6rem)] flex flex-col flex-1">
+            {/*<div className="flex justify-between items-center bg-gray-800 text-white p-4">*/}
+            {/*    <div>*/}
+            {/*        <div>Peers Connected: {allConnectedLength}</div>*/}
+            {/*        <div className="mt-2">Store: {storePeersLength}</div>*/}
+            {/*        <div>Filter: {filterPeersLength}</div>*/}
+            {/*        <div>Light Push: {lightPushPeersLength}</div>*/}
+            {/*    </div>*/}
+            {/*    <div>Waku v2 Web Chat</div>*/}
+            {/*    <div>*/}
+            {/*        <div className="mt-2">*/}
+            {/*            Peers Discovered:{" "}*/}
+            {/*            {discoveredBootstrapPeers.size + discoveredPeerExchangePeers.size}*/}
+            {/*        </div>*/}
+            {/*        <div>*/}
+            {/*            Bootstrap: {discoveredBootstrapPeers.size} Peer Exchange:{" "}*/}
+            {/*            {discoveredPeerExchangePeers.size}*/}
+            {/*        </div>*/}
+            {/*        <div className="mt-2">*/}
+            {/*            Peers Connected:{" "}*/}
+            {/*            {connectedBootstrapPeers.size + connectedPeerExchangePeers.size}*/}
+            {/*        </div>*/}
+            {/*        <div>*/}
+            {/*            Bootstrap: {connectedBootstrapPeers.size} Peer Exchange:{" "}*/}
+            {/*            {connectedPeerExchangePeers.size}*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
             <ChatList messages={messages} channelKey={channelKey} />
             <MessageInput hasLightPushPeers={!!lightPushPeers} sendMessage={onSend}/>
         </div>

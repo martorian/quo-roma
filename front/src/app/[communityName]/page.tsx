@@ -10,6 +10,7 @@ import {WakuChatManager} from "@/components/waku/waku-chat-manager";
 import {Proposal} from "@/components/proposal";
 import {UI} from "@/components/ui";
 import {CommunityConnect} from "@/components/community/community-connect";
+import {privateKeyFromSismoId} from "@/lib/crypto";
 
 const PROPOSALS = [
     {
@@ -82,7 +83,10 @@ export default function CommunityPage() {
                                 Create a proposal
                             </UI.Button>
                         </div>
-                        <WakuChatManager topicName='test-topic-waku' />
+                        <WakuChatManager
+                            topicName={communityName}
+                            channelKey={privateKeyFromSismoId(groupId)}
+                        />
                     </main>
                 </div>
             )}
