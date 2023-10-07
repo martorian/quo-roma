@@ -2,8 +2,8 @@ import { useEffect, useRef } from "react";
 import { Message } from "./Message";
 import type { ChatListProps } from "./types";
 
-export default function ChatList(props: ChatListProps) {
-  const renderedMessages = props.messages.array.map((message) => (
+export default function ChatList({messages}: ChatListProps) {
+  const renderedMessages = messages.array.map((message) => (
     <div
       key={
         message.nick +
@@ -24,7 +24,7 @@ export default function ChatList(props: ChatListProps) {
   return (
     <div className="overflow-y-auto h-full">
       {renderedMessages}
-      <AlwaysScrollToBottom messages={props.messages.array} />
+      <AlwaysScrollToBottom messages={messages.array} />
     </div>
   );
 }
