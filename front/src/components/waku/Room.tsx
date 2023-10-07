@@ -46,7 +46,7 @@ export default function Room({
     };
 
     return (
-        <div className="relative h-full max-h-[calc(100vw-6rem)] flex flex-col flex-1">
+        <div className="relative h-full max-h-[calc(100vh-2rem)] flex flex-col flex-1">
             <ChatList
                 messages={messages}
                 channelKey={channelKey}
