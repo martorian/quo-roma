@@ -1,15 +1,14 @@
 'use client';
 
 import {notFound, useParams} from 'next/navigation';
-import { SismoConnect } from '@/components/sismo/sismo-connect';
-import { Channels, groupIds } from '@/config/sismo';
-import { Plus } from 'lucide-react';
-import { AuthType } from '@sismo-core/sismo-connect-react';
+import { groupIds } from '@/config/sismo';
 import {useState} from "react";
 import {WakuChatManager} from "@/components/waku/waku-chat-manager";
 import {Proposal} from "@/components/proposal";
-import {UI} from "@/components/ui";
 import {CommunityConnect} from "@/components/community/community-connect";
+import {privateKeyFromSismoId} from "@/lib/crypto";
+import {CommunityList} from "@/components/community/community-list";
+import {CreateNewProposal} from "@/components/community/create-new-proposal";
 
 const PROPOSALS = [
     {
@@ -69,20 +68,19 @@ export default function CommunityPage() {
             ) : (
                 <div className="flex min-h-screen p-4">
                     <aside className="flex flex-col min-w-[240px] bg-gray-50 text-white rounded-l-md border-b border-t border-l border-gray-200 divide-y divide-gray-200">
-                        {/*<ChannelsList />*/}
-                        CHANNEL_LIST
+                        <CommunityList />
                     </aside>
                     <main className="flex w-full divide-x divide-x-gray-200 relative items-start justify-end rounded-r-md border border-gray-200">
                         <div className="flex-1 p-4 flex flex-col items-center gap-4">
                             { PROPOSALS.map((proposal =>{
                                 return ( <Proposal key={proposal.id} proposal={proposal} />)
                             }))}
-                            <UI.Button className="gap-2 align-center">
-                                <Plus className="w-4 h-4 opacity-50" />
-                                Create a proposal
-                            </UI.Button>
+                            <CreateNewProposal className="align-center justify-center"/>
                         </div>
-                        <WakuChatManager topicName='test-topic-waku' />
+                        <WakuChatManager
+                            topicName={communityName}
+                            channelKey={privateKeyFromSismoId(groupId)}
+                        />
                     </main>
                 </div>
             )}

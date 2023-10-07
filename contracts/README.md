@@ -1,14 +1,8 @@
-# web3-contracts-starter
+# Quo-Roma smart contract
 
-Hardhat Project
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
-
-Try running some of the following tasks:
+## Deploy on Mumbai
 
 ```
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.ts
+"QuoromaID": "0xe36f3FFd23E639c2324116d64Cce557B8a51165E",
+"DaoFactory": "0x8aFf9b94CB8294035162F1B61A8b18fA3ec5E1A0"
 ```

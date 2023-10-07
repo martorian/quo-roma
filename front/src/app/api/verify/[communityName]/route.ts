@@ -1,14 +1,14 @@
 import { sismoConnectServer } from '@/lib/sismo-connect-server';
 import { AuthType } from '@sismo-core/sismo-connect-server';
 import { NextResponse } from 'next/server';
-import {groupIds} from "@/config/sismo";
+import { groupIds } from '@/config/sismo';
 
 export async function POST(req: Request, { params }) {
     const sismoConnectResponse = await req.json();
     const { communityName } = params;
     const groupId = groupIds[communityName] || null;
 
-    if( ! groupId ) {
+    if (!groupId) {
         return NextResponse.json('Group ID not found.', { status: 500 });
     }
 

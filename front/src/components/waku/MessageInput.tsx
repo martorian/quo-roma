@@ -33,18 +33,6 @@ export default function MessageInput(props: MessageInputProps) {
         setInputText(event.target.value);
     };
 
-    // const onKeyDown = async (event: KeyboardEvent<HTMLInputElement>) => {
-    //     if (
-    //         isActive &&
-    //         event.key === "Enter" &&
-    //         !event.altKey &&
-    //         !event.ctrlKey &&
-    //         !event.shiftKey
-    //     ) {
-    //         await onMessage();
-    //     }
-    // };
-
     // Enable the button if there are peers available or the user is sending a command
     useEffect(() => {
         if (inputText.startsWith("/") || hasLightPushPeers) {
@@ -57,12 +45,11 @@ export default function MessageInput(props: MessageInputProps) {
     return (
         <form
             onSubmit={handleSubmitMessage}
-            className="relative mt-auto w-full border-t border-gray-200 rounded-br-sm"
+            className="flex-none absolute bottom-0 left-0 bg-white w-full border-t border-gray-200 rounded-br-sm"
         >
             <UI.Input
                 type="text"
                 onChange={onChange}
-                // onKeyDown={onKeyDown}
                 placeholder="Write a message…"
                 className="bg-transparent w-full h-16 px-4 py-2 border-none rounded-none rounded-br-sm"
                 value={inputText}

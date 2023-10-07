@@ -1,24 +1,22 @@
-import type {LightNode} from "@waku/interfaces";
-import ChatList from "./ChatList";
-import MessageInput from "./MessageInput";
-import { useWaku, useContentPair, useLightPush } from "@waku/react";
-import { ChatMessage } from "./chat-message";
-import { useNodePeers, usePeers } from "./hooks";
-import type { RoomProps } from "./types";
-import { encrypt } from "../crypt/crypt";
+import type { LightNode } from '@waku/interfaces';
+import ChatList from './ChatList';
+import MessageInput from './MessageInput';
+import { useWaku, useContentPair, useLightPush } from '@waku/react';
+import { ChatMessage } from './chat-message';
+import { usePeers } from './hooks';
+import type { RoomProps } from './types';
+import { encrypt } from '@/lib/crypto';
 
-export default function Room({messages, nick, commandHandler, channelKey}: RoomProps) {
-    const {node} = useWaku<LightNode>();
-    const {encoder} = useContentPair();
-    const {push: onPush} = useLightPush({node, encoder});
-
-    const {
-        connectedBootstrapPeers,
-        connectedPeerExchangePeers,
-        discoveredBootstrapPeers,
-        discoveredPeerExchangePeers,
-    } = useNodePeers(node);
-    const {allConnected, storePeers, filterPeers, lightPushPeers} = usePeers({
+export default function Room({
+    messages,
+    nick,
+    commandHandler,
+    channelKey,
+}: RoomProps) {
+    const { node } = useWaku<LightNode>();
+    const { encoder } = useContentPair();
+    const { push: onPush } = useLightPush({ node, encoder });
+    const { lightPushPeers } = usePeers({
         node,
     });
 
@@ -27,67 +25,36 @@ export default function Room({messages, nick, commandHandler, channelKey}: RoomP
             return;
         }
 
-    if (text.startsWith("/")) {
-      commandHandler(text);
-    } else {
+        if (text.startsWith('/')) {
+            commandHandler(text);
+        } else {
+            // Encrypt message
+            let SecurityKeyHex = channelKey;
 
-      // Encrypt message
-      let SecuritykeyHex = channelKey;
-      
-      const SecurityKeyBytes = Buffer.from(SecuritykeyHex, 'hex');
-      let encrypted_message = encrypt(text, SecurityKeyBytes);
+            const SecurityKeyBytes = Buffer.from(SecurityKeyHex, 'hex');
+            let encrypted_message = encrypt(text, SecurityKeyBytes);
 
-      const timestamp = new Date();
-      const chatMessage = ChatMessage.fromUtf8String(
-        timestamp,
-        nick,
-        encrypted_message
-      );
-      const payload = chatMessage.encode();
-            await onPush({payload, timestamp});
+            const timestamp = new Date();
+            const chatMessage = ChatMessage.fromUtf8String(
+                timestamp,
+                nick,
+                encrypted_message
+            );
+            const payload = chatMessage.encode();
+            await onPush({ payload, timestamp });
         }
     };
 
-    const allConnectedLength = orZero(allConnected?.length);
-    const lightPushPeersLength = orZero(lightPushPeers?.length);
-    const filterPeersLength = orZero(filterPeers?.length);
-    const storePeersLength = orZero(storePeers?.length);
-
     return (
-        <div className="h-full max-h-screen flex flex-col flex-1">
-            <div className="flex justify-between items-center bg-gray-800 text-white p-4">
-                <div>
-                    <div>Peers Connected: {allConnectedLength}</div>
-                    <div className="mt-2">Store: {storePeersLength}</div>
-                    <div>Filter: {filterPeersLength}</div>
-                    <div>Light Push: {lightPushPeersLength}</div>
-                </div>
-                <div>Waku v2 Web Chat</div>
-                <div>
-                    <div className="mt-2">
-                        Peers Discovered:{" "}
-                        {discoveredBootstrapPeers.size + discoveredPeerExchangePeers.size}
-                    </div>
-                    <div>
-                        Bootstrap: {discoveredBootstrapPeers.size} Peer Exchange:{" "}
-                        {discoveredPeerExchangePeers.size}
-                    </div>
-                    <div className="mt-2">
-                        Peers Connected:{" "}
-                        {connectedBootstrapPeers.size + connectedPeerExchangePeers.size}
-                    </div>
-                    <div>
-                        Bootstrap: {connectedBootstrapPeers.size} Peer Exchange:{" "}
-                        {connectedPeerExchangePeers.size}
-                    </div>
-                </div>
-            </div>
-            <ChatList messages={messages} channelKey={channelKey} />
-            <MessageInput hasLightPushPeers={!!lightPushPeers} sendMessage={onSend}/>
+        <div className="relative h-full max-h-[calc(100vw-6rem)] flex flex-col flex-1">
+            <ChatList
+                messages={messages}
+                channelKey={channelKey}
+            />
+            <MessageInput
+                hasLightPushPeers={!!lightPushPeers}
+                sendMessage={onSend}
+            />
         </div>
     );
-}
-
-function orZero(value: undefined | number): number {
-    return value || 0;
 }

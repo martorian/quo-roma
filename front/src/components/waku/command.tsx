@@ -1,13 +1,31 @@
+import { UI } from "@/components/ui";
 import { multiaddr } from "@multiformats/multiaddr";
 import type { LightNode } from "@waku/interfaces";
 
-function help(): string[] {
-  return [
-    "/nick <nickname>: set a new nickname",
-    "/info: some information about the node",
-    "/connect <Multiaddr>: connect to the given peer",
-    "/help: Display this help",
-  ];
+function Help() {
+  return (
+      <UI.Card>
+        <UI.CardHeader>
+          <UI.CardTitle className="text-md">Help</UI.CardTitle>
+        </UI.CardHeader>
+      </UI.Card>
+  )
+}
+
+export const COMMANDS_COMPONENTS = {
+    "/help": Help,
+}
+
+function help() {
+
+  return (<Help />);
+
+  // return [
+  //   "/nick <nickname>: set a new nickname",
+  //   "/info: some information about the node",
+  //   "/connect <Multiaddr>: connect to the given peer",
+  //   "/help: Display this help",
+  // ];
 }
 
 function nick(
@@ -117,7 +135,9 @@ export default async function handleCommand(
   const command = args.shift()!;
   switch (command) {
     case "/help":
-      help().map((str) => response.push(str));
+      response.push(command);
+      // help().map((str) => response.push(str));
+      // return <Help />
       break;
     case "/nick":
       nick(args.shift(), setNick).map((str) => response.push(str));
@@ -135,7 +155,7 @@ export default async function handleCommand(
       connections(waku).map((str) => response.push(str));
       break;
     default:
-      response.push(`Unknown Command '${command}'`);
+      response.push(`Unknown Command '${command} but you can try /help to learn more.'`);
   }
   return { command, response };
 }
