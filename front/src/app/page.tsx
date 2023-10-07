@@ -3,15 +3,15 @@
 import { useState } from 'react';
 import { UI } from '@/components/ui';
 import { Logo } from '@/components/icons/logo';
-import {Puzzle, Rocket, Volume2} from "lucide-react";
-import Link from "next/link";
+import { Puzzle, Rocket, Volume2 } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Home() {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     return (
         <>
-        {/*// <div className="bg-white text-black">*/}
+            {/*// <div className="bg-white text-black">*/}
             <header className="navbar fixed top-0 left-0 z-50 w-full border-stroke bg-white duration-300">
                 <div className="container relative lg:max-w-[1305px] lg:px-10">
                     <div className="flex items-center justify-between">
@@ -54,15 +54,6 @@ export default function Home() {
                                     <li className="menu-item">
                                         <a
                                             onClick={() => setIsOpen(false)}
-                                            href="#features"
-                                            className="menu-scroll inline-flex items-center text-base font-medium text-black hover:text-redpraha   lg:py-7"
-                                        >
-                                            Features
-                                        </a>
-                                    </li>
-                                    <li className="menu-item">
-                                        <a
-                                            onClick={() => setIsOpen(false)}
                                             href="#about"
                                             className="menu-scroll inline-flex items-center text-base font-medium text-black hover:text-redpraha   lg:py-7"
                                         >
@@ -72,31 +63,40 @@ export default function Home() {
                                     <li className="menu-item">
                                         <a
                                             onClick={() => setIsOpen(false)}
-                                            href="#work-process"
+                                            href="#features"
                                             className="menu-scroll inline-flex items-center text-base font-medium text-black hover:text-redpraha   lg:py-7"
                                         >
-                                            How It Works
+                                            Features
                                         </a>
                                     </li>
-                                    {/*<li className="menu-item">*/}
-                                    {/*    <a*/}
-                                    {/*        onClick={() => setIsOpen(false)}*/}
-                                    {/*        href="#faq"*/}
-                                    {/*        className="menu-scroll inline-flex items-center text-base font-medium text-black hover:text-redpraha   lg:py-7"*/}
-                                    {/*    >*/}
-                                    {/*        Support*/}
-                                    {/*    </a>*/}
-                                    {/*</li>*/}
+                                    <li className="menu-item">
+                                        <a
+                                            onClick={() => setIsOpen(false)}
+                                            href="#partners"
+                                            className="menu-scroll inline-flex items-center text-base font-medium text-black hover:text-redpraha   lg:py-7"
+                                        >
+                                            Partners
+                                        </a>
+                                    </li>
+                                    <li className="menu-item">
+                                        <a
+                                            onClick={() => setIsOpen(false)}
+                                            href="#pasta"
+                                            className="menu-scroll inline-flex items-center text-base font-medium text-black hover:text-redpraha   lg:py-7"
+                                        >
+                                            Pasta ??
+                                        </a>
+                                    </li>
                                 </ul>
                             </nav>
                         </div>
 
-                        <UI.Button asChild size="lg" className="mr-[60px] flex items-center justify-end lg:mr-0">
-                            <Link
-                                href="/explore"
-                            >
-                                Explore communities
-                            </Link>
+                        <UI.Button
+                            asChild
+                            size="lg"
+                            className="mr-[60px] flex items-center justify-end lg:mr-0"
+                        >
+                            <Link href="/explore">Explore communities</Link>
                         </UI.Button>
                     </div>
                 </div>
@@ -114,7 +114,7 @@ export default function Home() {
                                     className="wow fadeInUp mb-12 lg:mb-0 lg:max-w-[570px]"
                                     data-wow-delay=".2s"
                                 >
-                                    <span className="mb-5 block text-2xl font-medium leading-tight text-black sm:text-[40px] md:text-[30px] lg:text-[30px] xl:text-[30px]">
+                                    <span className="mb-2 block text-2xl font-medium leading-tight text-black sm:text-[40px] md:text-[30px] lg:text-[30px] xl:text-[30px]">
                                         Engage
                                     </span>
                                     <h1 className="mb-6 text-5xl font-bold leading-tight text-black  sm:text-[50px] md:text-[70px] lg:text-[52px] xl:text-[60px]">
@@ -122,38 +122,49 @@ export default function Home() {
                                         <span className="inline bg-redpraha bg-clip-text text-transparent">
                                             Quo-Roma <br />
                                         </span>
-                                        The Social DAO
-                                        <span className="inline bg-redpraha bg-clip-text text-transparent mx-2">
-                                            Management
+                                        The Social{' '}
+                                        <span className=" bg-redpraha bg-clip-text text-transparent ">
+                                            {' '}
+                                            DAO
                                         </span>
+                                        <span className="inline"> Manager</span>
                                     </h1>
                                     <p className="mb-10 max-w-[475px] text-base leading-relaxed text-body">
                                         ETH Rome - 2023
                                     </p>
 
                                     <div className="flex gap-4 items-center">
-                                        <UI.Button variant="secondary" size="lg" asChild className="text-md gap-2">
-                                        <Link
-                                            target="_blank"
-                                            href="https://github.com/orgs/Witness-Market/repositories"
+                                        <UI.Button
+                                            variant="secondary"
+                                            size="lg"
+                                            asChild
+                                            className="text-md gap-2"
                                         >
-                                            View on Github
-                                            <span>
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24"
-                                                    height="24"
-                                                    viewBox="0 0 24 24"
-                                                >
-                                                    <path
-                                                        fill="#FFF"
-                                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                                                    />
-                                                </svg>
-                                            </span>
-                                        </Link>
+                                            <Link
+                                                target="_blank"
+                                                href="https://github.com/orgs/Witness-Market/repositories"
+                                            >
+                                                View on Github
+                                                <span>
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        width="24"
+                                                        height="24"
+                                                        viewBox="0 0 24 24"
+                                                    >
+                                                        <path
+                                                            fill="#FFF"
+                                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                                                        />
+                                                    </svg>
+                                                </span>
+                                            </Link>
                                         </UI.Button>
-                                        <UI.Button size="lg" asChild className="text-md gap-2">
+                                        <UI.Button
+                                            size="lg"
+                                            asChild
+                                            className="text-md gap-2"
+                                        >
                                             <a
                                                 target="_blank"
                                                 href="https://github.com/martorian/quo-roma"
@@ -182,27 +193,28 @@ export default function Home() {
                 </section>
 
                 <section
-                    id="features"
+                    id="about"
                     className="relative z-10 pt-[110px]"
                 >
-                    <div className="container flex">
+                    <div className="container flex flex-col items-center">
                         <div
                             className="wow fadeInUp mx-auto mb-14 max-w-[690px] text-center lg:mb-[70px]"
                             data-wow-delay=".2s"
                         >
-                            <Logo />
+                            <div className="flex items-center justify-center mx-auto w-10 h-10 mb-4">
+                                <Logo />
+                            </div>
 
-                            <h2 className="mb-4 text-3xl font-bold text-black  sm:text-4xl md:text-[44px] md:leading-tight">
-                                An amazing Social DAO
+                            <h2 className="mb-4 text-3xl font-bold text-black sm:text-4xl md:text-[44px] md:leading-tight">
+                                An amazing Social DAO manager
                             </h2>
                             <p className="text-base text-body">
-                                Quo-Roma is a revolutionary Social DAO
-                                Management platform that empowers entities to
-                                create and manage various charity causes, all
-                                with the shared goal of driving positive change.
-                                Our platform offers a unique and engaging
-                                community-driven experience where your
-                                contributions matter.
+                                Welcome to Quo-Roma, the groundbreaking Social
+                                DAO Management platform that empowers entities,
+                                whether charities, companies, or other
+                                organizations, to create multiple decentralized
+                                autonomous organizations (DAOs) dedicated to
+                                fund impactful causes worldwide.
                             </p>
                         </div>
                     </div>
@@ -423,7 +435,7 @@ export default function Home() {
                 </section>
 
                 <section
-                    id="about"
+                    id="features"
                     className="relative pt-[150px]"
                 >
                     <div className="container lg:max-w-[1120px]">
@@ -435,7 +447,7 @@ export default function Home() {
                                         data-wow-delay=".2s"
                                     >
                                         <img
-                                            src="/images/17.png"
+                                            src="/images/20.png"
                                             alt="about image"
                                             className="mx-auto max-w-full"
                                         />
@@ -443,29 +455,132 @@ export default function Home() {
                                 </div>
 
                                 <div className="w-full px-4 lg:w-1/2">
-                                    <h2 className="mb-8 text-3xl font-bold text-black  sm:text-4xl md:text-[44px] md:leading-tight">
-                                        Two Reasons Why Our Dapp is Powerful
-                                        for the Community
-                                    </h2>
-                                    <div className="mb-[30px] flex items-start gap-8">
-                                        <div className="shrink-0 flex h-[60px] w-[60px] items-center justify-center rounded-full border border-stroke text-xl font-semibold text-black text-center ">
-                                            01
+                                    <div
+                                        className="wow fadeInUp lg:ml-auto lg:max-w-[510px]"
+                                        data-wow-delay=".3s"
+                                    >
+                                        <h2 className="mb-4 text-3xl font-bold text-black  sm:text-4xl md:text-[44px] md:leading-tight">
+                                            Our Features
+                                        </h2>
+                                        <div className="mb-3 flex items-center">
+                                            <div className="shrink-0 mr-3 flex h-[60px] w-[60px] items-center justify-center rounded-full border border-stroke text-xl font-semibold text-black text-center ">
+                                                01
+                                            </div>
+                                            <div>
+                                                <h5 className="text-xl font-medium text-black ">
+                                                    NFT Control access with
+                                                    Sismo
+                                                </h5>
+                                                <p>
+                                                    With Quo-Roma, users join a
+                                                    DAO by minting a unique NFT,
+                                                    gaining exclusive access to
+                                                    a dedicated dashboard.
+                                                    Inside, they find a vibrant
+                                                    community-driven chat.
+                                                </p>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <h3 className="text-xl font-medium text-black ">
-                                                Our Dapp streamlines the
-                                                entire process of creating
-                                                and managing charity causes
-                                            </h3>
-                                            <p className="text-base text-body">
-                                                significantly reducing
-                                                administrative overhead and
-                                                costs. This efficiency
-                                                ensures that more of the
-                                                resources you contribute go
-                                                directly to the causes you
-                                                care about.
-                                            </p>
+
+                                        <div className="flex items-center">
+                                            <div className="shrink-0 mr-3 flex h-[60px] w-[60px] items-center justify-center rounded-full border border-stroke text-xl font-semibold text-black  ">
+                                                02
+                                            </div>
+                                            <div>
+                                                <h5 className="text-xl font-medium text-black ">
+                                                    Encrypted messaging
+                                                </h5>
+                                                <p>
+                                                    Thanks to waku community
+                                                    members can chat in a secure
+                                                    and encrypted chat
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center pt-3">
+                                            <div className="shrink-0 mr-3 flex h-[60px] w-[60px] items-center justify-center rounded-full border border-stroke text-xl font-semibold text-black  ">
+                                                03
+                                            </div>
+                                            <div>
+                                                <h5 className="text-xl font-medium text-black ">
+                                                    Triggering commands
+                                                </h5>
+                                                <p>
+                                                    They can initiate actions
+                                                    with simple commands, like
+                                                    sending funds or casting
+                                                    votes on proposals.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center pt-3">
+                                            <div className="shrink-0 mr-3 flex h-[60px] w-[60px] items-center justify-center rounded-full border border-stroke text-xl font-semibold text-black  ">
+                                                04
+                                            </div>
+                                            <div>
+                                                <h5 className="text-xl font-medium text-black ">
+                                                    Proposal and voting system
+                                                    to managed the fund
+                                                </h5>
+                                                <p>
+                                                    User can make some proposal
+                                                    to be voted to manage the
+                                                    funds of the DAO
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center pt-3">
+                                            <div className="shrink-0 mr-3 flex h-[60px] w-[60px] items-center justify-center rounded-full border border-stroke text-xl font-semibold text-black  ">
+                                                05
+                                            </div>
+                                            <div>
+                                                <h5 className="text-xl font-medium text-black ">
+                                                    Indexing Dao public data in
+                                                    open subgraph
+                                                </h5>
+                                                <p>
+                                                    Sugbgraph can be query by
+                                                    external actor to make
+                                                    promotion of the charities
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="container lg:max-w-[1120px] mt-20">
+                        <div>
+                            <div className="-mx-4 flex flex-wrap items-center justify-between">
+                                <div className="w-full px-4 lg:w-1/2">
+                                    <div
+                                        className="wow fadeInUp lg:ml-auto lg:max-w-[510px]"
+                                        data-wow-delay=".3s"
+                                    >
+                                        <h2 className="mb-4 text-3xl font-bold text-black  sm:text-4xl md:text-[44px] md:leading-tight">
+                                            Need more reasons to join us ?
+                                        </h2>
+                                        <div className="mb-[30px] flex items-center">
+                                            <div className="shrink-0 mr-3 flex h-[60px] w-[60px] items-center justify-center rounded-full border border-stroke text-xl font-semibold text-black text-center ">
+                                                01
+                                            </div>
+                                            <div>
+                                                <h5 className="text-xl font-medium text-black ">
+                                                    Our Dapp streamlines the
+                                                    entire process of creating
+                                                    and managing charity causes
+                                                </h5>
+                                                <p className="text-base text-body">
+                                                    significantly reducing
+                                                    administrative overhead and
+                                                    costs. This efficiency
+                                                    ensures that more of the
+                                                    resources you contribute go
+                                                    directly to the causes you
+                                                    care about.
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -479,18 +594,28 @@ export default function Home() {
                                             </h5>
                                             <p className="text-base text-body">
                                                 Quo-Roma is accessible to
-                                                anyone, anywhere. By
-                                                harnessing the power of
-                                                blockchain and Web3
+                                                anyone, anywhere. By harnessing
+                                                the power of blockchain and Web3
                                                 technology, we break down
-                                                geographical barriers and
-                                                enable people from all
-                                                corners of the world to join
-                                                hands in creating a better
-                                                future for our global
+                                                geographical barriers and enable
+                                                people from all corners of the
+                                                world to join hands in creating
+                                                a better future for our global
                                                 community.
                                             </p>
                                         </div>
+                                    </div>
+                                </div>
+                                <div className="w-full px-4 lg:w-1/2">
+                                    <div
+                                        className="wow fadeInUp relative z-10 mx-auto mb-14 w-full max-w-[470px] pb-6 lg:mx-0 lg:mb-0"
+                                        data-wow-delay=".2s"
+                                    >
+                                        <img
+                                            src="/images/17.png"
+                                            alt="about image"
+                                            className="mx-auto max-w-full"
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -533,7 +658,7 @@ export default function Home() {
                 </section>
 
                 <section
-                    id="work-process"
+                    id="partners"
                     className="relative z-10 pt-[110px]"
                 >
                     <div className="container">
@@ -542,7 +667,7 @@ export default function Home() {
                             data-wow-delay=".2s"
                         >
                             <h2 className="mb-4 text-3xl font-bold text-black  sm:text-4xl md:text-[44px] md:leading-tight">
-                                Quo-Roma to the moon 🚀 with our partner
+                                Quo-Roma to the moon 🚀 with our partners
                             </h2>
                         </div>
                     </div>
@@ -807,11 +932,11 @@ export default function Home() {
                             data-wow-delay=".2s"
                         >
                             <h1 className="mb-6 text-5xl font-bold leading-tight text-black  sm:text-[50px] md:text-[70px] lg:text-[52px] xl:text-[60px]">
-                                Let's change the way to support charities{' '}
+                                Let's change the way we support charities{' '}
                                 <span className="inline bg-redpraha bg-clip-text text-transparent">
                                     WITH {''} <br />{' '}
                                 </span>
-                                a transparent and private Dapp
+                                a transparent and private Dao manager
                                 <br />{' '}
                                 <span className="inline bg-redpraha bg-clip-text text-transparent mx-2">
                                     woooooooo
@@ -850,35 +975,61 @@ export default function Home() {
                                 application now
                             </p>
                             <div className="flex justify-center gap-4">
-                                <UI.Button asChild variant="secondary" size="lg" className="text-md gap-2">
+                                <UI.Button
+                                    asChild
+                                    variant="secondary"
+                                    size="lg"
+                                    className="text-md gap-2"
+                                >
                                     <Link
                                         target="_blank"
                                         href="https://github.com/martorian/quo-roma"
                                         // className="mr-6 mb-6 inline-flex h-[60px] items-center rounded-lg bg-black py-[14px] px-[30px] text-white hover:bg-opacity-90"
                                     >
-                                            View on Github
-                                            <svg
-                                                className="w-5 h-5"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                            >
-                                                <path
-                                                    fill="currentColor"
-                                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                                                />
-                                            </svg>
+                                        View on Github
+                                        <svg
+                                            className="w-5 h-5"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                fill="currentColor"
+                                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                                            />
+                                        </svg>
                                     </Link>
                                 </UI.Button>
-                                <UI.Button asChild size="lg" className="text-md gap-2">
-                                    <Link
-                                        href="/explore"
-                                    >
+                                <UI.Button
+                                    asChild
+                                    size="lg"
+                                    className="text-md gap-2"
+                                >
+                                    <Link href="/explore">
                                         Explore communities
                                     </Link>
                                 </UI.Button>
                             </div>
+                        </div>
+                    </div>
+                </section>
+                <section
+                    id="pasta"
+                    className="pt-[20px] pb-[20px]"
+                >
+                    <div className="container  pt-10 pb-4">
+                        <div
+                            className="wow fadeInUp mx-auto mb-10 max-w-[690px] text-center"
+                            data-wow-delay=".2s"
+                        >
+                            <h2 className="mb-4 text-3xl font-bold text-redpraha  sm:text-4xl md:text-[44px] md:leading-tight">
+                                Some pasta you said ??
+                            </h2>
+                            <p className="text-base text-body mb-10">
+                                Something strange happen if you write "/pasta"
+                                into the chat
+                            </p>
                         </div>
                     </div>
                 </section>
@@ -900,7 +1051,7 @@ export default function Home() {
                     </div>
                 </div>
             </footer>
-        {/*// </div>*/}
-    </>
+            {/*// </div>*/}
+        </>
     );
 }
