@@ -21,10 +21,10 @@ interface Props {
 }
 
 export function Proposal({proposal}: Props) {
-    const yesVotes = proposal.votes.filter(vote => vote.value === 1).length;
-    const noVotes = proposal.votes.filter(vote => vote.value === -1).length;
     const [votes, setVotes] = useState<Array<Vote>>(proposal.votes);
-    const [descriptionModalOpened, setDescriptionModalOpened] = useState<Array<Vote>>(proposal.votes);
+    const yesVotes = votes.filter(vote => vote.value === 1).length;
+    const noVotes = votes.filter(vote => vote.value === -1).length;
+    const [descriptionModalOpened, setDescriptionModalOpened] = useState<boolean>(false);
 
     const totalVotes = votes.length;
 
@@ -62,9 +62,9 @@ export function Proposal({proposal}: Props) {
                         <ThumbsDown className="h-4 w-4"/>
                     </UI.Button>
                 </div>
-                <div className="w-4 h-full flex flex-col">
-                    <div className="block bg-green-500 w-full" style={{height: `${yesVotes / totalVotes}%`}} />
-                    <div className="block bg-red-500 w-full" style={{height: `${noVotes / totalVotes}%`}} />
+                <div className="w-4 h-full flex flex-col rounded-lg">
+                    <div className="block bg-green-500 w-full" style={{height: `${100 * yesVotes / totalVotes}%`}} />
+                    <div className="block bg-red-500 w-full" style={{height: `${100 * noVotes / totalVotes}%`}} />
                 </div>
                 <div className="flex flex-col items-start gap-1">
                     <UI.CardTitle className="text-lg">{proposal.title}</UI.CardTitle>

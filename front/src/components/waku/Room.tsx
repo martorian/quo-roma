@@ -7,7 +7,7 @@ import { useNodePeers, usePeers } from "./hooks";
 import type { RoomProps } from "./types";
 import { encrypt } from "../crypt/crypt";
 
-export default function Room({messages, nick, commandHandler}: RoomProps) {
+export default function Room({messages, nick, commandHandler, channelKey}: RoomProps) {
     const {node} = useWaku<LightNode>();
     const {encoder} = useContentPair();
     const {push: onPush} = useLightPush({node, encoder});
@@ -31,8 +31,9 @@ export default function Room({messages, nick, commandHandler}: RoomProps) {
       commandHandler(text);
     } else {
 
-      // Encrypt message  
-      let SecuritykeyHex = "cc851d299ebb6f446b803a01fbc0f568fa92c02f26555143f32055e76357d61a";
+      // Encrypt message
+      let SecuritykeyHex = channelKey;
+      
       const SecurityKeyBytes = Buffer.from(SecuritykeyHex, 'hex');
       let encrypted_message = encrypt(text, SecurityKeyBytes);
 
@@ -81,7 +82,7 @@ export default function Room({messages, nick, commandHandler}: RoomProps) {
                     </div>
                 </div>
             </div>
-            <ChatList messages={messages}/>
+            <ChatList messages={messages} channelKey={channelKey} />
             <MessageInput hasLightPushPeers={!!lightPushPeers} sendMessage={onSend}/>
         </div>
     );

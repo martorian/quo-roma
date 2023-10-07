@@ -1,5 +1,10 @@
 export const sismoConfig = {
     appId: "0x7644ecfa10b335436aeefc340a5a21c4",
+    // vault: {
+    //     impersonate: [
+    //         "0xA36F8bAe7Cc83Ee4E870F913Cf55264EFA01a18B",
+    //     ],
+    // },
 }
 
 export enum Channels {

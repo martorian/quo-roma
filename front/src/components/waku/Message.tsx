@@ -51,9 +51,16 @@ export class Message {
     return this.chatMessage.timestamp;
   }
 
-  get payloadAsUtf8() {
+  payloadAsUtf8(SecuritykeyHex: string) {
 
-    let SecuritykeyHex = "cc851d299ebb6f446b803a01fbc0f568fa92c02f26555143f32055e76357d61a";
+    if (this.chatMessage.payloadAsUtf8[0] == "/") {
+      return this.chatMessage.payloadAsUtf8;
+    }
+
+    // TODO :: is it a address
+    // Check nft owner of the DAO
+    // Send the private key encrypted
+
     const SecurityKeyBytes = Buffer.from(SecuritykeyHex, 'hex');
 
     const decrypted_msg = decrypt(this.chatMessage.payloadAsUtf8, SecurityKeyBytes);

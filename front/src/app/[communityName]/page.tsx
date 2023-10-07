@@ -9,6 +9,7 @@ import {useState} from "react";
 import {WakuChatManager} from "@/components/waku/waku-chat-manager";
 import {Proposal} from "@/components/proposal";
 import {UI} from "@/components/ui";
+import {CommunityConnect} from "@/components/community/community-connect";
 
 const PROPOSALS = [
     {
@@ -44,8 +45,6 @@ export default function CommunityPage() {
     const [error, setError] = useState(null);
     const groupId = groupIds[communityName] || null;
 
-    console.log({groupId});
-
     if( vaultId && ! groupId ) {
         notFound();
     }
@@ -57,16 +56,15 @@ export default function CommunityPage() {
             )}
             { ! vaultId ? (
                 <main className="flex w-full h-screen relative flex-col items-center justify-center rounded-r-md border border-gray-200">
-                    <SismoConnect
+                    <CommunityConnect
                         size="lg"
+                        communityName={communityName}
                         className="flex text-md mx-auto"
-                        auths={[{ authType: AuthType.VAULT }]}
                         onSuccess={(data) => { setVaultId(data.vaultId)}}
                         onError={(data) => { setError(data) }}
-                        // claims={[{ groupId: groupId }]}
                     >
                         Connect to #{communityName}
-                    </SismoConnect>
+                    </CommunityConnect>
                 </main>
             ) : (
                 <div className="flex min-h-screen p-4">
