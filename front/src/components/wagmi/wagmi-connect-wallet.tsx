@@ -22,7 +22,6 @@ export const WagmiConnectWallet = ({ className, children }: Props) => {
         <UI.AlertDialog>
             <UI.AlertDialogTrigger asChild>
                 <UI.Button
-                    variant="outline"
                     className={className}
                 >
                     {children}
@@ -39,10 +38,7 @@ export const WagmiConnectWallet = ({ className, children }: Props) => {
                     </UI.AlertDialogTitle>
                     <UI.AlertDialogDescription className="flex flex-col pt-4 gap-4">
                         {connectors.map((currentConnector: Connector, i) => {
-                            console.log('connector', currentConnector);
-                            const Icon =
-                                CONNECTOR_ICONS[currentConnector.id] || null;
-                            console.log('Icon', Icon);
+                            const Icon = CONNECTOR_ICONS[currentConnector.id] || null;
 
                             return (
                                 <UI.Button

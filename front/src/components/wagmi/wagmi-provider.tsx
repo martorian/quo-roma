@@ -2,9 +2,9 @@
 
 import { WagmiConfig, configureChains, createConfig } from 'wagmi';
 import { PropsWithChildren, useEffect, useState } from 'react';
-import { publicProvider } from 'wagmi/dist/providers/public';
 import { polygon, polygonMumbai } from 'viem/chains';
 import { MetaMaskConnector } from '@wagmi/connectors/metaMask';
+import { publicProvider } from 'wagmi/providers/public'
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
     [polygon, polygonMumbai],

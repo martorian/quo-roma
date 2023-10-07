@@ -23,7 +23,6 @@ export const WagmiAddressInfos = ({ className }: Props) => {
         <UI.AlertDialog>
             <UI.AlertDialogTrigger asChild>
                 <UI.Button
-                    variant="outline"
                     className={className}
                 >
                     {formatAddress(address)}
