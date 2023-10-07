@@ -45,7 +45,7 @@ export const JoinCommunityButton = ({className, children}: Props) => {
                     functionName: 'balanceOf',
                     args: [address],
                 });
-                console.log('Balance', balance);
+                console.log('balance: ', balance);
                 setHasMinted(balance > 0);
             } catch (e) {
                 console.log('Error', e);
@@ -56,7 +56,6 @@ export const JoinCommunityButton = ({className, children}: Props) => {
 
     const handleJoinCommunity = async () => {
         console.log('Join community');
-        const {communityName} = useParams();
         setLoading(true)
 
         if (!walletClient) {

@@ -40,11 +40,6 @@ export default function WakuChat() {
   };
 
   return (
-    <div
-      className="chat-app"
-      style={{ height: "100vh", width: "100vw", overflow: "hidden" }}
-    >
       <Room nick={nick} messages={messages} commandHandler={onCommand} />
-    </div>
   );
 }
