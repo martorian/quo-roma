@@ -19,6 +19,7 @@ interface ButtonProps extends PropsWithChildren {
     className?: string;
     onSuccess: (data: any) => void;
     onError: (data: any) => void;
+    onResponse?: (response: any) => void;
 }
 
 export const SismoConnect = ({
@@ -29,13 +30,12 @@ export const SismoConnect = ({
     disabled,
     className,
     onSuccess,
+                                 onResponse,
     onError,
 }: ButtonProps) => {
     const { sismoConnect, response } = useSismoConnect({
         config: sismoConfig,
     });
-
-    // const [sismoSession, setSismoSession] = useState(null);
 
     useEffect(() => {
         if (!response) {
@@ -43,13 +43,18 @@ export const SismoConnect = ({
         }
 
         (async () => {
-            const res = await fetch('/api/verify', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(response),
-            });
+            let res;
+            if( onResponse ){
+                res = await onResponse(response);
+            } else {
+                res = await fetch('/api/verify', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(response),
+                });
+            }
             const data = await res.json();
             console.log({data})
             if (res.status === 200) {
