@@ -31,4 +31,12 @@ In the DAO chat, users can decided to create proposals or get feedback form the 
 We decided to implement the voting system with railgun. To create a new proposal, a user will first create a NFT for a proposal. This proposal will also create two nfts, one for the "yes" and another one for the "no" choice. Then, users will have to claim a NFT representing his voting rights. This token can only be minted, if the user is part of the DAO. Then, after minted, the user will have to send this NFT to one of the two available choices address (the "yes" or "no" contract). When, the time period is finished, we can called the NFT proposal and count the number of NFT in "yes" or "no".
 
 This solution take advantage of sending privately an NFT through Railgun technology.
-A work in progress implementation can be seen in `./railgun/contracts/` and `./railgun/scripts/`. 
+A work in progress implementation can be seen in `./railgun/contracts/` and `./railgun/scripts/`.
+
+In our implementation, we have created the smartcontract for the proposal and also the two contract for the yes/no receiver. They can be found in:
+- Yes Contract : 0xd9145CCE52D386f254917e481eB44e9943F39138
+- No Contract  : 0xd8b934580fcE35a11B58C6D73aDeE468a2833fa8
+- Proposal     : 0xf8e81D47203A594245E36C48e151709F0C19fBe8
+
+We also start working on the minting of the NFT for the user using railgun. This can be found in: `./railgun/scripts/create_dao_votes.ts`
+
