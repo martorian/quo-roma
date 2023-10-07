@@ -6,6 +6,28 @@ import { Channels, groupIds } from '@/config/sismo';
 import { AuthType } from '@sismo-core/sismo-connect-react';
 import {useState} from "react";
 
+const PROPOSALS = [
+    {
+        id: 1,
+        title: 'Proposal #1',
+        description: 'Aenean lacinia bibendum nulla sed consectetur.',
+        votes: [
+            {
+                id: 1,
+                value: 1,
+            },
+            {
+                id: 2,
+                value: -1,
+            },
+            {
+                id: 3,
+                value: -1,
+            }
+        ]
+    }
+]
+
 export default function CommunityPage() {
     const { communityName } = useParams();
     const [vaultId, setVaultId] = useState(null);

@@ -13,8 +13,8 @@ export default function InviteToCommunityPage() {
 
     return (
         <div className="relative isolate flex items-center justify-center py-16 sm:py-24 h-screen overflow-hidden">
-            { isConnected && (
-                <WagmiAddressInfos className="absolute top-4 right-4" />
+            {isConnected && (
+                <WagmiAddressInfos className="absolute top-4 right-4"/>
             )}
             <div
                 className="mx-auto max-w-7xl sm:px-6 lg:px-8 py-24 flex flex-col gap-4 sm:rounded-3xl sm:px-24 xl:py-32">
