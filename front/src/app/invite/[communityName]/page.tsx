@@ -22,7 +22,7 @@ export default function InviteToCommunityPage() {
                     {communityName} community
                 </h2>
                 <p className="mx-auto mt-2 max-w-xl text-center text-lg leading-8 text-gray-600">
-                    Welcome to Paul Bocuse's community, get access to the best
+                    Welcome to Paul Bocuse s community, get access to the best
                     recipes from Lyon in France.
                 </p>
                 {isConnected ? (

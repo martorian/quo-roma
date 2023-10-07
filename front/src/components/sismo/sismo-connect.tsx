@@ -30,7 +30,7 @@ export const SismoConnect = ({
     disabled,
     className,
     onSuccess,
-                                 onResponse,
+    onResponse,
     onError,
 }: ButtonProps) => {
     const { sismoConnect, response } = useSismoConnect({
@@ -44,7 +44,7 @@ export const SismoConnect = ({
 
         (async () => {
             let res;
-            if( ! onResponse ){
+            if (!onResponse) {
                 res = await fetch('/api/verify', {
                     method: 'POST',
                     headers: {
@@ -69,7 +69,7 @@ export const SismoConnect = ({
                 }
             }
         })();
-    }, [response]);
+    }, [response, onSuccess, onError, onResponse]);
 
     const handleClick = async () => {
         if (loading || disabled) {
