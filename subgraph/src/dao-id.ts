@@ -5,7 +5,7 @@ export function handleDaoCreated(event: DaoCreatedEvent): void {
   let entity = new DaoCreated(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   );
-  entity.ChannelID_id = event.params.id;
+  entity.ChannelID_id = event.params._groupId;
   entity.name = event.params.name;
   entity.dataUri = event.params.dataUri;
   entity.blockNumber = event.block.number;

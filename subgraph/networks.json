@@ -1,12 +1,12 @@
 {
   "mumbai": {
     "Daofactory": {
-      "address": "0x9A9944a8B67Ab4D35f25D49a30F7cAcC89736F8b",
-      "startBlock": 40915000
+      "address": "0x8aFf9b94CB8294035162F1B61A8b18fA3ec5E1A0",
+      "startBlock": 40918080
     },
     "QuoromaID": {
       "address": "0xe36f3FFd23E639c2324116d64Cce557B8a51165E",
-      "startBlock": 40915000
+      "startBlock": 40918080
     }
   }
 }

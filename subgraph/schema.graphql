@@ -2,7 +2,7 @@
 
 type DaoCreated @entity(immutable: true) {
   id: Bytes!
-  ChannelID_id: BigInt! # uint256
+  ChannelID_id: String! # uint256
   name: String! # string
   dataUri: String! # string
   blockNumber: BigInt!

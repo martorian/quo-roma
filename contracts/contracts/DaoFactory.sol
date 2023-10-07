@@ -27,7 +27,7 @@ contract DaoFactory is Initializable, UUPSUpgradeable, OwnableUpgradeable {
     struct Dao {
         uint256 id;
         string name;
-        uint256 groupId;
+        string groupId;
         string dataUri;
     }
 
@@ -67,8 +67,8 @@ contract DaoFactory is Initializable, UUPSUpgradeable, OwnableUpgradeable {
      * @notice Throws an error if the Dao does not exist.
      */
 
-    function getDaoId(uint256 _id) public view returns (uint256) {
-        require(daos[_id].groupId > 2, "Dao ID does not exist");
+    function getDaoId(uint256 _id) public view returns (string memory) {
+        require(bytes(daos[_id].groupId).length != 0, "Dao ID does not exist");
         return daos[_id].groupId;
     }
 
@@ -88,7 +88,7 @@ contract DaoFactory is Initializable, UUPSUpgradeable, OwnableUpgradeable {
      * @param _groupId The group id of the new Dao.
      * @param _dataUri The IPFS URI for the new Dao.
      */
-    function createDao(string memory _name, uint256 _groupId, string memory _dataUri) public {
+    function createDao(string memory _name, string memory _groupId, string memory _dataUri) public {
         daoId.increment();
         uint256 newDaoId = totalDao();
 
@@ -102,12 +102,14 @@ contract DaoFactory is Initializable, UUPSUpgradeable, OwnableUpgradeable {
     }
 
     // update Dao struct
-    function updateDao(uint256 _id, string memory _name, uint256 _groupId, string memory _dataUri) public {
-        require(daos[_id].groupId > 2, "Dao ID does not exist");
+    function updateDao(uint256 _id, string memory _name, string memory _groupId, string memory _dataUri) public {
+        require(bytes(daos[_id].groupId).length != 0, "Dao ID does not exist");
         Dao storage updateDao = daos[_id];
         updateDao.name = _name;
         updateDao.groupId = _groupId;
         updateDao.dataUri = _dataUri; // Set the IPFS URI
+
+        emit DaoUpdated(_id, _name, _groupId, _dataUri); //
     }
 
     // =========================== Internal functions ==============================
@@ -122,8 +124,8 @@ contract DaoFactory is Initializable, UUPSUpgradeable, OwnableUpgradeable {
     // =========================== Event ==============================
 
     // Event emitted when a new Dao is created
-    event DaoCreated(uint256 id, string name, uint256 _groupId, string dataUri);
+    event DaoCreated(uint256 id, string name, string _groupId, string dataUri);
 
     // Event emitted when a Dao is updated
-    event DaoUpdated(uint256 id, string name, uint256 _groupId, string dataUri);
+    event DaoUpdated(uint256 id, string name, string _groupId, string dataUri);
 }

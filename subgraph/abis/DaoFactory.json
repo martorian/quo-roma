@@ -53,9 +53,9 @@
       },
       {
         "indexed": false,
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "_groupId",
-        "type": "uint256"
+        "type": "string"
       },
       {
         "indexed": false,
@@ -84,9 +84,9 @@
       },
       {
         "indexed": false,
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "_groupId",
-        "type": "uint256"
+        "type": "string"
       },
       {
         "indexed": false,
@@ -151,9 +151,9 @@
         "type": "string"
       },
       {
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "_groupId",
-        "type": "uint256"
+        "type": "string"
       },
       {
         "internalType": "string",
@@ -187,9 +187,9 @@
         "type": "string"
       },
       {
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "groupId",
-        "type": "uint256"
+        "type": "string"
       },
       {
         "internalType": "string",
@@ -211,9 +211,9 @@
     "name": "getDaoId",
     "outputs": [
       {
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "",
-        "type": "uint256"
+        "type": "string"
       }
     ],
     "stateMutability": "view",
@@ -298,9 +298,9 @@
         "type": "string"
       },
       {
-        "internalType": "uint256",
+        "internalType": "string",
         "name": "_groupId",
-        "type": "uint256"
+        "type": "string"
       },
       {
         "internalType": "string",
