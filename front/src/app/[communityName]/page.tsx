@@ -1,17 +1,14 @@
 'use client';
 
 import {notFound, useParams} from 'next/navigation';
-import { SismoConnect } from '@/components/sismo/sismo-connect';
-import { Channels, groupIds } from '@/config/sismo';
-import { Plus } from 'lucide-react';
-import { AuthType } from '@sismo-core/sismo-connect-react';
+import { groupIds } from '@/config/sismo';
 import {useState} from "react";
 import {WakuChatManager} from "@/components/waku/waku-chat-manager";
 import {Proposal} from "@/components/proposal";
-import {UI} from "@/components/ui";
 import {CommunityConnect} from "@/components/community/community-connect";
 import {privateKeyFromSismoId} from "@/lib/crypto";
 import {CommunityList} from "@/components/community/community-list";
+import {CreateNewProposal} from "@/components/community/create-new-proposal";
 
 const PROPOSALS = [
     {
@@ -78,10 +75,7 @@ export default function CommunityPage() {
                             { PROPOSALS.map((proposal =>{
                                 return ( <Proposal key={proposal.id} proposal={proposal} />)
                             }))}
-                            <UI.Button className="gap-2 align-center">
-                                <Plus className="w-4 h-4 opacity-50" />
-                                Create a proposal
-                            </UI.Button>
+                            <CreateNewProposal className="align-center justify-center"/>
                         </div>
                         <WakuChatManager
                             topicName={communityName}
