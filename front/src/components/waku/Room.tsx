@@ -31,8 +31,7 @@ export default function Room({messages, nick, commandHandler, channelKey}: RoomP
       commandHandler(text);
     } else {
 
-      // Encrypt message  
-      // let SecuritykeyHex = "cc851d299ebb6f446b803a01fbc0f568fa92c02f26555143f32055e76357d61a";
+      // Encrypt message
       let SecuritykeyHex = channelKey;
       
       const SecurityKeyBytes = Buffer.from(SecuritykeyHex, 'hex');

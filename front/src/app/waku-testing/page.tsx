@@ -2,12 +2,18 @@
 
 import { WakuChatManager } from '@/components/waku/waku-chat-manager';
 
+const crypto = require("crypto");
+
 export default function WakuChat() {
     
+    function privateKeyFromSismoId(groupId: string) {
+        return crypto.createHash('sha256', groupId).digest('hex');
+    }
+
     return (
         <WakuChatManager 
             topicName='test-topic-waku-encrypted-v5' 
-            channelKey="cc851d299ebb6f446b803a01fbc0f568fa92c02f26555143f32055e76357d61a" 
+            channelKey={privateKeyFromSismoId("0xc144e4dc24824e5e8f4f4f8b74a41bdb")}
         />
     );
 }
