@@ -557,9 +557,9 @@ export default function Home() {
                                     >
                                         <div className="mx-auto mb-8 flex h-[90px] w-[90px] items-center justify-center rounded-3xl bg-redpraha bg-opacity-20 text-redpraha duration-300 group-hover:bg-redpraha group-hover:text-white   ">
                                             <img
-                                                src="/request-logo.png"
+                                                src="/bounties/waku.png"
                                                 alt="author"
-                                                className="h-full w-full object-cover object-center"
+                                                className="h-full w-full object-contain"
                                             />
                                         </div>
                                         <h3 className="mb-4 text-xl font-semibold text-black  sm:text-[22px] xl:text-[26px]">
@@ -582,9 +582,9 @@ export default function Home() {
                                     >
                                         <div className="mx-auto mb-8 flex h-[90px] w-[90px] items-center justify-center rounded-3xl bg-redpraha bg-opacity-20 text-redpraha duration-300 group-hover:bg-redpraha group-hover:text-white   ">
                                             <img
-                                                src="/logo.png"
+                                                src="/bounties/sismo.png"
                                                 alt="author"
-                                                className="h-full w-full object-cover object-center"
+                                                className="h-full w-full object-contain"
                                             />
                                         </div>
                                         <h3 className="mb-4 text-xl font-semibold text-black  sm:text-[22px] xl:text-[26px]">
@@ -606,9 +606,9 @@ export default function Home() {
                                     >
                                         <div className="mx-auto mb-8 flex h-[90px] w-[90px] items-center justify-center rounded-3xl bg-redpraha bg-opacity-20 text-redpraha duration-300 group-hover:bg-redpraha group-hover:text-white   ">
                                             <img
-                                                src="/tl-logo.png"
+                                                src="/bounties/railgun.png"
                                                 alt="author"
-                                                className="h-full w-full object-cover object-center"
+                                                className="h-full w-full object-contain"
                                             />
                                         </div>
                                         <h3 className="mb-4 text-xl font-semibold text-black  sm:text-[22px] xl:text-[26px]">
@@ -627,9 +627,9 @@ export default function Home() {
                                     >
                                         <div className="mx-auto mb-8 flex h-[90px] w-[90px] items-center justify-center rounded-3xl bg-redpraha bg-opacity-20 text-redpraha duration-300 group-hover:bg-redpraha group-hover:text-white   ">
                                             <img
-                                                src="/mantle-logo.webp"
+                                                src="/bounties/the-graph.png"
                                                 alt="author"
-                                                className="h-full w-full object-cover object-center"
+                                                className="h-full w-full object-contain"
                                             />
                                         </div>
                                         <h3 className="mb-4 text-xl font-semibold text-black  sm:text-[22px] xl:text-[26px]">
@@ -650,9 +650,9 @@ export default function Home() {
                                     >
                                         <div className="mx-auto mb-8 flex h-[90px] w-[90px] items-center justify-center rounded-3xl bg-redpraha bg-opacity-20 text-redpraha duration-300 group-hover:bg-redpraha group-hover:text-white   ">
                                             <img
-                                                src="/celo-logo.png"
+                                                src="/bounties/peanuts.ico"
                                                 alt="author"
-                                                className="h-full w-full object-cover object-center"
+                                                className="h-full w-full object-contain"
                                             />
                                         </div>
                                         <h3 className="mb-4 text-xl font-semibold text-black  sm:text-[22px] xl:text-[26px]">
