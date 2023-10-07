@@ -2,7 +2,7 @@
 # Quo-Roma
 
 
-### Encryption message workflow
+## Waku - Encryption message workflow
 
 We are using Waku to exchange messages. However, all the messages are sent in clear. It is not a problem for some DAOs however, for some communities, some messages need to be encrypted to be sure to be transmitted and to avoid censorship.
 
@@ -10,11 +10,9 @@ To solve this issue, an idea is to integrating encrypted messages through Waku. 
 
 When a user first arrived on the chat, he will first send his public address to the channel. Then, another member, will verify that the user have the NFT of the DA0. If it is the case, a user that owned the symmetric key, will encrypt the symmetric key with the public key of the new user and send it to him.
 
-This solution will allow to have private messages send on Waku and keep the privacy of it.
+This solution allows users to communicate with private message on Waku and keep full privacy. 
 
-For our implementation, see it in the `front` repository.
-
-
+For our implementation, see it in the `./front/src/components/waku/` repository.
 
 #### Wallet issue
 
@@ -24,7 +22,7 @@ Then, the other person, can create a symetric key, use the public key to encrypt
 
 
 
-### Voting System - Railgun workflow
+## Railgun - Voting System
 
 In the DAO chat, users can decided to create proposals or get feedback form the community. For voting, we need to be sure that user can vote by expressing itself freely without any judgement for his vote.
 
