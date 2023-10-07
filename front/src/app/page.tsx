@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { UI } from '@/components/ui';
+import Image from 'next/image';
 import { Logo } from '@/components/icons/logo';
 import { Puzzle, Rocket, Volume2 } from 'lucide-react';
 import Link from 'next/link';
@@ -181,7 +182,7 @@ export default function Home() {
                                     className="wow fadeInUp relative z-10 mx-auto w-full max-w-[530px] pt-8 lg:mr-0"
                                     data-wow-delay=".3s"
                                 >
-                                    <img
+                                    <Image
                                         src="/images/9.png"
                                         alt="hero image"
                                         className="mx-auto max-w-full"
@@ -446,7 +447,7 @@ export default function Home() {
                                         className="wow fadeInUp relative z-10 mx-auto mb-14 w-full max-w-[470px] pb-6 lg:mx-0 lg:mb-0"
                                         data-wow-delay=".2s"
                                     >
-                                        <img
+                                        <Image
                                             src="/images/20.png"
                                             alt="about image"
                                             className="mx-auto max-w-full"
@@ -611,7 +612,7 @@ export default function Home() {
                                         className="wow fadeInUp relative z-10 mx-auto mb-14 w-full max-w-[470px] pb-6 lg:mx-0 lg:mb-0"
                                         data-wow-delay=".2s"
                                     >
-                                        <img
+                                        <Image
                                             src="/images/17.png"
                                             alt="about image"
                                             className="mx-auto max-w-full"
@@ -681,7 +682,7 @@ export default function Home() {
                                         data-wow-delay=".2s"
                                     >
                                         <div className="mx-auto mb-8 flex h-[90px] w-[90px] items-center justify-center rounded-3xl bg-redpraha bg-opacity-20 text-redpraha duration-300 group-hover:bg-redpraha group-hover:text-white   ">
-                                            <img
+                                            <Image
                                                 src="/bounties/waku.png"
                                                 alt="author"
                                                 className="h-full w-full object-contain"
@@ -706,7 +707,7 @@ export default function Home() {
                                         data-wow-delay=".3s"
                                     >
                                         <div className="mx-auto mb-8 flex h-[90px] w-[90px] items-center justify-center rounded-3xl bg-redpraha bg-opacity-20 text-redpraha duration-300 group-hover:bg-redpraha group-hover:text-white   ">
-                                            <img
+                                            <Image
                                                 src="/bounties/sismo.png"
                                                 alt="author"
                                                 className="h-full w-full object-contain"
@@ -719,7 +720,7 @@ export default function Home() {
                                             Sismo Connect is a single sign-on
                                             (SSO) enabling applications to
                                             request any data aggregated in a
-                                            user's Data Vault
+                                            user’s Data Vault
                                         </p>
                                     </div>
                                 </div>
@@ -730,7 +731,7 @@ export default function Home() {
                                         data-wow-delay=".4s"
                                     >
                                         <div className="mx-auto mb-8 flex h-[90px] w-[90px] items-center justify-center rounded-3xl bg-redpraha bg-opacity-20 text-redpraha duration-300 group-hover:bg-redpraha group-hover:text-white   ">
-                                            <img
+                                            <Image
                                                 src="/bounties/railgun.png"
                                                 alt="author"
                                                 className="h-full w-full object-contain"
@@ -751,7 +752,7 @@ export default function Home() {
                                         data-wow-delay=".4s"
                                     >
                                         <div className="mx-auto mb-8 flex h-[90px] w-[90px] items-center justify-center rounded-3xl bg-redpraha bg-opacity-20 text-redpraha duration-300 group-hover:bg-redpraha group-hover:text-white   ">
-                                            <img
+                                            <Image
                                                 src="/bounties/the-graph.png"
                                                 alt="author"
                                                 className="h-full w-full object-contain"
@@ -774,7 +775,7 @@ export default function Home() {
                                         data-wow-delay=".4s"
                                     >
                                         <div className="mx-auto mb-8 flex h-[90px] w-[90px] items-center justify-center rounded-3xl bg-redpraha bg-opacity-20 text-redpraha duration-300 group-hover:bg-redpraha group-hover:text-white   ">
-                                            <img
+                                            <Image
                                                 src="/bounties/peanuts.ico"
                                                 alt="author"
                                                 className="h-full w-full object-contain"
@@ -932,7 +933,7 @@ export default function Home() {
                             data-wow-delay=".2s"
                         >
                             <h1 className="mb-6 text-5xl font-bold leading-tight text-black  sm:text-[50px] md:text-[70px] lg:text-[52px] xl:text-[60px]">
-                                Let's change the way we support charities{' '}
+                                Let’s change the way we support charities{' '}
                                 <span className="inline bg-redpraha bg-clip-text text-transparent">
                                     WITH {''} <br />{' '}
                                 </span>
@@ -948,7 +949,7 @@ export default function Home() {
                                 className="wow fadeInUp relative mx-auto mb-5 w-full max-w-[530px]"
                                 data-wow-delay=".3s"
                             >
-                                <img
+                                <Image
                                     src="/images/28.png"
                                     alt="hero image"
                                     className="mx-auto max-w-full"
@@ -1027,7 +1028,7 @@ export default function Home() {
                                 Some pasta you said ??
                             </h2>
                             <p className="text-base text-body mb-10">
-                                Something strange happen if you write "/pasta"
+                                Something strange happen if you write “/pasta”
                                 into the chat
                             </p>
                         </div>
