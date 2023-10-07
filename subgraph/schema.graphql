@@ -1,0 +1,86 @@
+######### DAO ENTITY #########
+
+type DaoCreated @entity(immutable: true) {
+  id: Bytes!
+  ChannelID_id: String! # uint256
+  name: String! # string
+  dataUri: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+######### QUOROMA ID ENTITY #########
+
+type CidUpdated @entity(immutable: true) {
+  id: Bytes!
+  profileId: BigInt! # uint256
+  newCid: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type DelegateAdded @entity(immutable: true) {
+  id: Bytes!
+  profileId: BigInt! # uint256
+  delegate: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type DelegateRemoved @entity(immutable: true) {
+  id: Bytes!
+  profileId: BigInt! # uint256
+  delegate: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Mint @entity(immutable: true) {
+  id: Bytes!
+  user: Bytes! # address
+  profileId: BigInt! # uint256
+  handle: String! # string
+  platformId: BigInt! # uint256
+  fee: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type MintFeeUpdated @entity(immutable: true) {
+  id: Bytes!
+  mintFee: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type MintStatusUpdated @entity(immutable: true) {
+  id: Bytes!
+  mintStatus: Int! # uint8
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ShortHandlesMaxPriceUpdated @entity(immutable: true) {
+  id: Bytes!
+  price: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Transfer @entity(immutable: true) {
+  id: Bytes!
+  from: Bytes! # address
+  to: Bytes! # address
+  tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
