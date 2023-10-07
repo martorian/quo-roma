@@ -16,7 +16,7 @@ import { Avatar } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
-import { Card } from '@/components/ui/card';
+import {Card, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Collapsible } from '@/components/ui/collapsible';
 import { Command } from '@/components/ui/command';
@@ -93,6 +93,9 @@ export const UI = {
     Button: Button,
     Calendar: Calendar,
     Card: Card,
+    CardHeader: CardHeader,
+    CardTitle: CardTitle,
+    CardDescription: CardDescription,
     Checkbox: Checkbox,
     Collapsible: Collapsible,
     Command: Command,
