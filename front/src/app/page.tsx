@@ -1,6 +1,4 @@
 import { PeanutsNFT } from '@/components/peanuts/peanutsNft';
-import { Peanuts } from '@/components/peanuts/peanutsToken';
-import Image from 'next/image';
 
 export default function Home() {
     return (

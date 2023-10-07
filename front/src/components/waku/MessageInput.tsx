@@ -50,7 +50,6 @@ export default function MessageInput(props: MessageInputProps) {
             <UI.Input
                 type="text"
                 onChange={onChange}
-                // onKeyDown={onKeyDown}
                 placeholder="Write a message…"
                 className="bg-transparent w-full h-16 px-4 py-2 border-none rounded-none rounded-br-sm"
                 value={inputText}

@@ -12,12 +12,12 @@ export default function Room({messages, nick, commandHandler, channelKey}: RoomP
     const {encoder} = useContentPair();
     const {push: onPush} = useLightPush({node, encoder});
 
-    const {
-        connectedBootstrapPeers,
-        connectedPeerExchangePeers,
-        discoveredBootstrapPeers,
-        discoveredPeerExchangePeers,
-    } = useNodePeers(node);
+    // const {
+    //     connectedBootstrapPeers,
+    //     connectedPeerExchangePeers,
+    //     discoveredBootstrapPeers,
+    //     discoveredPeerExchangePeers,
+    // } = useNodePeers(node);
     const {allConnected, storePeers, filterPeers, lightPushPeers} = usePeers({
         node,
     });
@@ -48,10 +48,10 @@ export default function Room({messages, nick, commandHandler, channelKey}: RoomP
         }
     };
 
-    const allConnectedLength = orZero(allConnected?.length);
-    const lightPushPeersLength = orZero(lightPushPeers?.length);
-    const filterPeersLength = orZero(filterPeers?.length);
-    const storePeersLength = orZero(storePeers?.length);
+    // const allConnectedLength = orZero(allConnected?.length);
+    // const lightPushPeersLength = orZero(lightPushPeers?.length);
+    // const filterPeersLength = orZero(filterPeers?.length);
+    // const storePeersLength = orZero(storePeers?.length);
 
     return (
         <div className="relative h-full max-h-[calc(100vw-6rem)] flex flex-col flex-1">

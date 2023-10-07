@@ -6,13 +6,13 @@ function Help() {
   return (
       <UI.Card>
         <UI.CardHeader>
-          <UI.CardTitle>Help</UI.CardTitle>
+          <UI.CardTitle className="text-md">Help</UI.CardTitle>
         </UI.CardHeader>
       </UI.Card>
   )
 }
 
-const COMMANDS_COMPONENTS = {
+export const COMMANDS_COMPONENTS = {
     "/help": Help,
 }
 
@@ -135,8 +135,9 @@ export default async function handleCommand(
   const command = args.shift()!;
   switch (command) {
     case "/help":
+      response.push(command);
       // help().map((str) => response.push(str));
-      return <Help />
+      // return <Help />
       break;
     case "/nick":
       nick(args.shift(), setNick).map((str) => response.push(str));
