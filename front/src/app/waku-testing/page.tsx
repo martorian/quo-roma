@@ -5,6 +5,6 @@ import { WakuChatManager } from '@/components/waku/waku-chat-manager';
 export default function WakuChat() {
     
     return (
-        <WakuChatManager topicName='test-topic-waku' />
+        <WakuChatManager topicName='test-topic-waku-encrypted-v5' />
     );
 }

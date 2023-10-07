@@ -5,6 +5,7 @@ import { useWaku, useContentPair, useLightPush } from "@waku/react";
 import { ChatMessage } from "./chat-message";
 import { useNodePeers, usePeers } from "./hooks";
 import type { RoomProps } from "./types";
+import { encrypt } from "../crypt/crypt";
 
 export default function Room(props: RoomProps) {
   const { node } = useWaku<LightNode>();
@@ -29,11 +30,17 @@ export default function Room(props: RoomProps) {
     if (text.startsWith("/")) {
       props.commandHandler(text);
     } else {
+
+      // Encrypt message  
+      let SecuritykeyHex = "cc851d299ebb6f446b803a01fbc0f568fa92c02f26555143f32055e76357d61a";
+      const SecurityKeyBytes = Buffer.from(SecuritykeyHex, 'hex');
+      let encrypted_message = encrypt(text, SecurityKeyBytes);
+
       const timestamp = new Date();
       const chatMessage = ChatMessage.fromUtf8String(
         timestamp,
         props.nick,
-        text
+        encrypted_message
       );
       const payload = chatMessage.encode();
 
