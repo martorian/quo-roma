@@ -5,6 +5,7 @@ import { PeanutsToken } from '@/components/commands/peanuts-token';
 import { WhereIsBrian } from '@/components/commands/where-is-brian';
 import { PeanutsNft } from '@/components/commands/peanuts-nft';
 import { Proposal } from '@/components/commands/proposal';
+import { AICommand } from '../commands/ai-command';
 
 export const COMMANDS = [
     {
@@ -31,6 +32,11 @@ export const COMMANDS = [
         name: '/where-is-brian',
         description: 'Find Brian',
         component: WhereIsBrian,
+    },
+    {
+        name: '/brian',
+        description: 'Ask Brian a question',
+        component: AICommand,
     },
 ];
 
