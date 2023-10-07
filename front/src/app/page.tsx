@@ -79,15 +79,6 @@ export default function Home() {
                                             Partners
                                         </a>
                                     </li>
-                                    <li className="menu-item">
-                                        <a
-                                            onClick={() => setIsOpen(false)}
-                                            href="#pasta"
-                                            className="menu-scroll inline-flex items-center text-base font-medium text-black hover:text-yellow-400   lg:py-7"
-                                        >
-                                            Pasta ??
-                                        </a>
-                                    </li>
                                 </ul>
                             </nav>
                         </div>
@@ -1209,25 +1200,6 @@ export default function Home() {
                                     </Link>
                                 </UI.Button>
                             </div>
-                        </div>
-                    </div>
-                </section>
-                <section
-                    id="pasta"
-                    className="pt-[20px] pb-[20px]"
-                >
-                    <div className="container  pt-10 pb-4">
-                        <div
-                            className="wow fadeInUp mx-auto mb-10 max-w-[690px] text-center"
-                            data-wow-delay=".2s"
-                        >
-                            <h2 className="mb-4 text-3xl font-bold text-yellow-400  sm:text-4xl md:text-[44px] md:leading-tight">
-                                Some pasta you said ??
-                            </h2>
-                            <p className="text-base text-body mb-10">
-                                Something strange happen if you write “/pasta”
-                                into the chat
-                            </p>
                         </div>
                     </div>
                 </section>
