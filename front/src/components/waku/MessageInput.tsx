@@ -20,7 +20,7 @@ export default function MessageInput(props: MessageInputProps) {
         });
     };
     const handleParseCommand = (command) => {
-        console.log({command});
+
         if (command.startsWith('/')) {
             setCommands(filterCommandsStartsWith(command));
         } else {

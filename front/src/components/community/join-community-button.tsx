@@ -8,7 +8,7 @@ import {
     usePublicClient,
     useWalletClient
 } from "wagmi";
-import configContracts from "../../../../contracts/.deployment/mumbai.json";
+import configContracts from "@/config/mumbai.json";
 import quoromaABI from "@/abis/QuoromaID.json";
 import {useParams} from "next/navigation";
 import Link from "next/link";
