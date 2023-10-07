@@ -44,6 +44,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "cmdk": "^0.2.0",
+    "crypto": "^1.0.1",
     "date-fns": "^2.30.0",
     "ethers": "^5.7.2",
     "lucide-react": "^0.284.0",

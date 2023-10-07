@@ -12,9 +12,10 @@ const startTime = new Date();
 startTime.setTime(Date.now() - 1000 * 60 * 60 * 24 * 7);
 const endTime = new Date();
 
-export default function WakuChat() {
+export default function WakuChat({channelKey}: string) {
   const { node } = useWaku<LightNode>();
   const { decoder } = useContentPair();
+  
   const [messages, pushLocalMessages] = useMessages({
     node,
     decoder,
@@ -40,6 +41,6 @@ export default function WakuChat() {
   };
 
   return (
-      <Room nick={nick} messages={messages} commandHandler={onCommand} />
+      <Room nick={nick} messages={messages} commandHandler={onCommand} channelKey={channelKey} />
   );
 }

@@ -1,12 +1,13 @@
 import type {LightNode} from "@waku/interfaces";
 import ChatList from "./ChatList";
 import MessageInput from "./MessageInput";
-import {useWaku, useContentPair, useLightPush} from "@waku/react";
-import {ChatMessage} from "./chat-message";
-import {useNodePeers, usePeers} from "./hooks";
-import type {RoomProps} from "./types";
+import { useWaku, useContentPair, useLightPush } from "@waku/react";
+import { ChatMessage } from "./chat-message";
+import { useNodePeers, usePeers } from "./hooks";
+import type { RoomProps } from "./types";
+import { encrypt } from "../crypt/crypt";
 
-export default function Room({messages, nick, commandHandler}: RoomProps) {
+export default function Room({messages, nick, commandHandler, channelKey}: RoomProps) {
     const {node} = useWaku<LightNode>();
     const {encoder} = useContentPair();
     const {push: onPush} = useLightPush({node, encoder});
@@ -26,17 +27,23 @@ export default function Room({messages, nick, commandHandler}: RoomProps) {
             return;
         }
 
-        if (text.startsWith("/")) {
-            commandHandler(text);
-        } else {
-            const timestamp = new Date();
-            const chatMessage = ChatMessage.fromUtf8String(
-                timestamp,
-                nick,
-                text
-            );
-            const payload = chatMessage.encode();
+    if (text.startsWith("/")) {
+      commandHandler(text);
+    } else {
 
+      // Encrypt message
+      let SecuritykeyHex = channelKey;
+      
+      const SecurityKeyBytes = Buffer.from(SecuritykeyHex, 'hex');
+      let encrypted_message = encrypt(text, SecurityKeyBytes);
+
+      const timestamp = new Date();
+      const chatMessage = ChatMessage.fromUtf8String(
+        timestamp,
+        nick,
+        encrypted_message
+      );
+      const payload = chatMessage.encode();
             await onPush({payload, timestamp});
         }
     };
@@ -75,7 +82,7 @@ export default function Room({messages, nick, commandHandler}: RoomProps) {
                     </div>
                 </div>
             </div>
-            <ChatList messages={messages}/>
+            <ChatList messages={messages} channelKey={channelKey} />
             <MessageInput hasLightPushPeers={!!lightPushPeers} sendMessage={onSend}/>
         </div>
     );

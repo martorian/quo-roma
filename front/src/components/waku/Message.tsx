@@ -1,5 +1,6 @@
 import { IDecodedMessage } from "@waku/interfaces";
 import { ChatMessage } from "./chat-message";
+import { decrypt } from "../crypt/crypt";
 
 export class Message {
   public chatMessage: ChatMessage;
@@ -50,7 +51,13 @@ export class Message {
     return this.chatMessage.timestamp;
   }
 
-  get payloadAsUtf8() {
-    return this.chatMessage.payloadAsUtf8;
+  payloadAsUtf8(SecuritykeyHex: string) {
+
+    const SecurityKeyBytes = Buffer.from(SecuritykeyHex, 'hex');
+
+    const decrypted_msg = decrypt(this.chatMessage.payloadAsUtf8, SecurityKeyBytes);
+    
+    return decrypted_msg;
   }
 }
+
