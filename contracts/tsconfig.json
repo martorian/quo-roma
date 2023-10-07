@@ -7,8 +7,6 @@
     "strict": true,
     "skipLibCheck": true,
     "paths": {
-      "@@/*": ["./*"],
-      "@/contracts/config": "../../contracts/deployment/mumbai.json",
       "@/*": ["src/*"],
     },
   }
