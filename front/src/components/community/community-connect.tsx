@@ -15,6 +15,8 @@ import Link from "next/link";
 import {AuthType} from "@sismo-core/sismo-connect-react";
 import {SismoConnect} from "@/components/sismo/sismo-connect";
 import {groupIds} from "@/config/sismo";
+import {Hash} from "lucide-react";
+import {cn} from "@/lib/utils";
 
 interface Props extends PropsWithChildren {
     className?: string;
@@ -39,17 +41,24 @@ export const CommunityConnect = ({communityName, onSuccess, onError, className}:
         return res;
     }
 
+    const classes = cn(
+        "gap-1",
+        className,
+    )
+
     return (
         <SismoConnect
             size="lg"
-            className={className}
+            className={classes}
             auths={[{authType: AuthType.VAULT}]}
             onResponse={verifyCommunity}
             onSuccess={onSuccess}
             onError={onError}
             claims={[{groupId: groupId}]}
         >
-            Connect to #{communityName}
+            Connect to
+            <Hash className="w-4 h-4 inline" />
+            {communityName}
         </SismoConnect>
     );
 };

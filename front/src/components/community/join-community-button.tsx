@@ -12,6 +12,7 @@ import configContracts from "../../../../contracts/.deployment/mumbai.json";
 import quoromaABI from "@/abis/QuoromaID.json";
 import {useParams} from "next/navigation";
 import Link from "next/link";
+import {Hash} from "lucide-react";
 
 interface Props extends PropsWithChildren {
     className?: string;
@@ -85,9 +86,10 @@ export const JoinCommunityButton = ({className, children}: Props) => {
     if (hasMinted) {
         return (
             <p className="mx-auto mt-2 max-w-xl text-center text-lg leading-8 text-gray-600 flex items-center gap-2">Start to chat on
-                <UI.Button asChild>
+                <UI.Button asChild className="gap-1">
                     <Link href={`/${communityName}`}>
-                        #{communityName}
+                        <Hash className="w-4 h-4 inline" />
+                        {communityName}
                     </Link>
                 </UI.Button>
             </p>

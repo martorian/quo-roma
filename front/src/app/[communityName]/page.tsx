@@ -11,6 +11,7 @@ import {Proposal} from "@/components/proposal";
 import {UI} from "@/components/ui";
 import {CommunityConnect} from "@/components/community/community-connect";
 import {privateKeyFromSismoId} from "@/lib/crypto";
+import {CommunityList} from "@/components/community/community-list";
 
 const PROPOSALS = [
     {
@@ -70,8 +71,7 @@ export default function CommunityPage() {
             ) : (
                 <div className="flex min-h-screen p-4">
                     <aside className="flex flex-col min-w-[240px] bg-gray-50 text-white rounded-l-md border-b border-t border-l border-gray-200 divide-y divide-gray-200">
-                        {/*<ChannelsList />*/}
-                        CHANNEL_LIST
+                        <CommunityList />
                     </aside>
                     <main className="flex w-full divide-x divide-x-gray-200 relative items-start justify-end rounded-r-md border border-gray-200">
                         <div className="flex-1 p-4 flex flex-col items-center gap-4">
