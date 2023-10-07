@@ -1,8 +1,7 @@
 import { NextResponse } from 'next/server';
 import { subgraphConfig } from '@/config/subgraph';
-export async function GET() {
 
-    console.log(subgraphConfig.url);
+export async function GET() {
     try {
         const response = await fetch(subgraphConfig.url, {
             method: 'POST',
@@ -24,7 +23,7 @@ export async function GET() {
 
         return NextResponse.json(data?.daoCreateds, { status: 200 });
     } catch (e: Error) {
-        console.log(e)
+        console.log(e);
         return NextResponse.json(e.message, { status: 500 });
     }
 }
