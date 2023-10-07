@@ -25,6 +25,7 @@ export type UseMessagesResult = [OrderedSet<Message>, (v: Message[]) => void];
 
 export interface ChatListProps {
   messages: OrderedSet<Message>;
+  channelKey: string;
 }
 
 export interface MessageInputProps {
@@ -36,4 +37,5 @@ export interface RoomProps {
   messages: OrderedSet<Message>;
   commandHandler: (cmd: string) => void;
   nick: string;
+  channelKey: string;
 }

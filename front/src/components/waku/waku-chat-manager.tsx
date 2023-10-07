@@ -6,9 +6,10 @@ import {Protocols} from "@waku/interfaces";
 
 interface Props {
     topicName?: string;
+    channelKey?: string;
 }
 
-export const WakuChatManager = ({topicName}: Props) => {
+export const WakuChatManager = ({topicName, channelKey}: Props) => {
     return (
         <StrictMode>
             <LightNodeProvider
@@ -16,7 +17,7 @@ export const WakuChatManager = ({topicName}: Props) => {
                 protocols={[Protocols.Store, Protocols.Filter, Protocols.LightPush]}
             >
                 <ContentPairProvider contentTopic={topicName}>
-                    <WakuChat/>
+                    <WakuChat channelKey={channelKey} />
                 </ContentPairProvider>
             </LightNodeProvider>
         </StrictMode>

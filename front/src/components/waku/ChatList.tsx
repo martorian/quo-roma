@@ -2,12 +2,12 @@ import { useEffect, useRef } from "react";
 import { Message } from "./Message";
 import type { ChatListProps } from "./types";
 
-export default function ChatList({messages}: ChatListProps) {
+export default function ChatList({messages, channelKey}: ChatListProps) {
   const renderedMessages = messages.array.map((message) => (
     <div
       key={
         message.nick +
-        message.payloadAsUtf8 +
+        message.payloadAsUtf8(channelKey) +
         message.timestamp.valueOf() +
         message.sentTimestamp?.valueOf()
       }
@@ -17,7 +17,7 @@ export default function ChatList({messages}: ChatListProps) {
       <span className="text-sm text-gray-500">
         {formatDisplayDate(message)}
       </span>
-      <p className="text-gray-700">{message.payloadAsUtf8}</p>
+      <p className="text-gray-700">{message.payloadAsUtf8(channelKey)}</p>
     </div>
   ));
 
