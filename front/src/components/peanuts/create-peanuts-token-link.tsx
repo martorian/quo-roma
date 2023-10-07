@@ -14,8 +14,6 @@ export const CreatePeanutsTokenLink = ({children}: PropsWithChildren) => {
     const [linkResult, setLinkResult] = useState<string>('');
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
-    console.log({polygonMumbai});
-
     const createLink = async () => {
         setIsLoading(true);
         try {

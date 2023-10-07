@@ -4,6 +4,7 @@ import { Help } from '@/components/commands/help';
 import { PeanutsToken } from '@/components/commands/peanuts-token';
 import { WhereIsBrian } from '@/components/commands/where-is-brian';
 import { PeanutsNft } from '@/components/commands/peanuts-nft';
+import { Proposal } from '@/components/commands/proposal';
 
 export const COMMANDS = [
     {
@@ -24,7 +25,7 @@ export const COMMANDS = [
     {
         name: '/proposal',
         description: 'Submit a proposal to the community',
-        component: PeanutsNft,
+        component: Proposal,
     },
     {
         name: '/where-is-brian',

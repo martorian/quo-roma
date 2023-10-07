@@ -1,14 +1,14 @@
 'use client';
 
-import {notFound, useParams} from 'next/navigation';
+import { notFound, useParams } from 'next/navigation';
 import { groupIds } from '@/config/sismo';
-import {useState} from "react";
-import {WakuChatManager} from "@/components/waku/waku-chat-manager";
-import {Proposal} from "@/components/proposal";
-import {CommunityConnect} from "@/components/community/community-connect";
-import {privateKeyFromSismoId} from "@/lib/crypto";
-import {CommunityList} from "@/components/community/community-list";
-import {CreateNewProposal} from "@/components/community/create-new-proposal";
+import { useState } from 'react';
+import { WakuChatManager } from '@/components/waku/waku-chat-manager';
+import { Proposal } from '@/components/proposal/proposal';
+import { CommunityConnect } from '@/components/community/community-connect';
+import { privateKeyFromSismoId } from '@/lib/crypto';
+import { CommunityList } from '@/components/community/community-list';
+import { CreateNewProposal } from '@/components/proposal/create-new-proposal';
 
 const PROPOSALS = [
     {
@@ -27,16 +27,17 @@ const PROPOSALS = [
             {
                 id: 3,
                 value: -1,
-            }
-        ]
+            },
+        ],
     },
     {
         id: 2,
         title: 'Cras Nibh Ornare',
-        description: 'Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo.',
-        votes: []
-    }
-]
+        description:
+            'Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo.',
+        votes: [],
+    },
+];
 
 export default function CommunityPage() {
     const { communityName } = useParams();
@@ -44,23 +45,25 @@ export default function CommunityPage() {
     const [error, setError] = useState(null);
     const groupId = groupIds[communityName] || null;
 
-    if( vaultId && ! groupId ) {
+    if (vaultId && !groupId) {
         notFound();
     }
 
     return (
         <>
-            { error && (
-                <pre>{ JSON.stringify(error, null, 4) }</pre>
-            )}
-            { ! vaultId ? (
+            {error && <pre>{JSON.stringify(error, null, 4)}</pre>}
+            {!vaultId ? (
                 <main className="flex w-full h-screen relative flex-col items-center justify-center rounded-r-md border border-gray-200">
                     <CommunityConnect
                         size="lg"
                         communityName={communityName}
                         className="flex text-md mx-auto"
-                        onSuccess={(data) => { setVaultId(data.vaultId)}}
-                        onError={(data) => { setError(data) }}
+                        onSuccess={(data) => {
+                            setVaultId(data.vaultId);
+                        }}
+                        onError={(data) => {
+                            setError(data);
+                        }}
                     >
                         Connect to #{communityName}
                     </CommunityConnect>
@@ -72,10 +75,15 @@ export default function CommunityPage() {
                     </aside>
                     <main className="flex w-full divide-x divide-x-gray-200 relative items-start justify-end rounded-r-md border border-gray-200">
                         <div className="flex-1 p-4 flex flex-col items-center gap-4">
-                            { PROPOSALS.map((proposal =>{
-                                return ( <Proposal key={proposal.id} proposal={proposal} />)
-                            }))}
-                            <CreateNewProposal className="align-center justify-center"/>
+                            {PROPOSALS.map((proposal) => {
+                                return (
+                                    <Proposal
+                                        key={proposal.id}
+                                        proposal={proposal}
+                                    />
+                                );
+                            })}
+                            <CreateNewProposal className="align-center justify-center" />
                         </div>
                         <WakuChatManager
                             topicName={communityName}
