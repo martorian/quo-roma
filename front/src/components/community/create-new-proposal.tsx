@@ -151,7 +151,7 @@ export const CreateNewProposal = ({ className }: Props) => {
                 className={cn('gap-2', className)}
             >
                 <Plus className="w-4 h-4 opacity-50" />
-                Create new channel
+                Create new proposal
             </UI.Button>
         </>
     );

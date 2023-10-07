@@ -9,9 +9,7 @@ export function useCommunities(): {
 } {
     const { data, error, isLoading } =
         useSWR<Array<CommunitySubgraph>>('/api/communities');
-
-    console.log({data})
-
+    
     return {
         communities:
             data?.map((community) => {

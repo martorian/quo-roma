@@ -1,32 +1,40 @@
-import {useEffect, useRef} from "react";
-import {Message} from "./Message";
-import type {ChatListProps} from "./types";
-import {COMMANDS_COMPONENTS, parseInput} from "@/components/waku/command";
+import { useEffect, useRef } from 'react';
+import { Message } from './Message';
+import type { ChatListProps } from './types';
+import { COMMANDS, parseInput } from '@/components/waku/command';
 
-export default function ChatList({messages, channelKey}: ChatListProps) {
+export default function ChatList({ messages, channelKey }: ChatListProps) {
     const renderedMessages = messages.array.map((message) => {
         const decodedMessage = message.payloadAsUtf8(channelKey);
 
-        if (decodedMessage.startsWith("/")) {
-            const args = parseInput(decodedMessage);
+        if (message.chatMessage.nick.startsWith('/')) {
+            const args = parseInput(message.chatMessage.nick);
             const command = args.shift()!;
-            console.log(command, args);
-            const CommandComponent = COMMANDS_COMPONENTS[command];
-            console.log(CommandComponent);
+
+            const currentCommand = COMMANDS.find((c) => {
+                return c.name === command;
+            });
+
+            let CommandComponent = null;
+
+            if (currentCommand) {
+                CommandComponent = currentCommand.component;
+            }
 
             if (!!CommandComponent) {
-                return
-                <article
-                    key={
-                        message.nick +
-                        decodedMessage +
-                        message.timestamp.valueOf() +
-                        message.sentTimestamp?.valueOf()
-                    }
-                    className="flex-none w-auto flex flex-col px-4 py-2 border border-gray-200 rounded-md rounded-bl-none"
-                >
-                    <CommandComponent args={args}/>
-                </article>
+                return (
+                    <CommandComponent
+                        key={
+                            message.nick +
+                            message.chatMessage.nick +
+                            message.timestamp.valueOf() +
+                            message.sentTimestamp?.valueOf()
+                        }
+                        message={message}
+                        command={command}
+                        args={args}
+                    />
+                );
             }
         }
 
@@ -42,27 +50,27 @@ export default function ChatList({messages, channelKey}: ChatListProps) {
             >
                 {/*<span className="text-sm text-gray-500">{message.nick}</span>*/}
                 <span className="text-sm text-gray-500">
-        {formatDisplayDate(message)}
-      </span>
+                    {formatDisplayDate(message)}
+                </span>
                 <p className="text-gray-900">{decodedMessage.trim()}</p>
             </article>
-        )
+        );
     });
 
     return (
         <div className="overflow-y-auto h-full p-4 pb-16 flex flex-col items-start gap-4 flex-none w-auto">
             {renderedMessages}
-            <AlwaysScrollToBottom messages={messages.array}/>
+            <AlwaysScrollToBottom messages={messages.array} />
         </div>
     );
 }
 
 function formatDisplayDate(message: Message): string {
     return message.timestamp.toLocaleString([], {
-        month: "short",
-        day: "numeric",
-        hour: "numeric",
-        minute: "2-digit",
+        month: 'short',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
         hour12: false,
     });
 }
@@ -76,5 +84,5 @@ const AlwaysScrollToBottom = (props: { messages: Message[] }) => {
         }
     }, [props.messages]);
 
-    return <div ref={elementRef}/>;
+    return <div ref={elementRef} />;
 };

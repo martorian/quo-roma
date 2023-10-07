@@ -4,6 +4,7 @@ import {LightNode} from "@waku/interfaces";
 import {MessageInputProps} from "./types";
 import {UI} from "@/components/ui";
 import {SendHorizontal} from "lucide-react";
+import {COMMANDS} from "@/components/waku/command";
 
 export default function MessageInput(props: MessageInputProps) {
     const {hasLightPushPeers, sendMessage} = props;
@@ -11,6 +12,21 @@ export default function MessageInput(props: MessageInputProps) {
 
     const [inputText, setInputText] = useState<string>("");
     const [isActive, setActiveButton] = useState<boolean>(false);
+    const [commands, setCommands] = useState([]);
+
+    const filterCommandsStartsWith = (commandBegining) => {
+        return COMMANDS.filter((command) => {
+            return command.name.startsWith(commandBegining);
+        });
+    };
+    const handleParseCommand = (command) => {
+        console.log({command});
+        if (command.startsWith('/')) {
+            setCommands(filterCommandsStartsWith(command));
+        } else {
+            setCommands([]);
+        }
+    };
 
     const handleSubmitMessage = async (event) => {
         event.preventDefault();
@@ -30,6 +46,7 @@ export default function MessageInput(props: MessageInputProps) {
 
     const onChange = (event: ChangeEvent<HTMLInputElement>) => {
         event.preventDefault();
+        handleParseCommand(event.target.value);
         setInputText(event.target.value);
     };
 
@@ -54,6 +71,24 @@ export default function MessageInput(props: MessageInputProps) {
                 className="bg-transparent w-full h-16 px-4 py-2 border-none rounded-none rounded-br-sm"
                 value={inputText}
             />
+
+            {inputText && commands.length > 0 && (
+                <div className="absolute pointer-events-none bottom-0 flex flex-col items-start m-1 rounded-sm border border-gray-300 shadow-md pb-12">
+                    {commands.map((command) => {
+                        return (
+                            <UI.Button
+                                variant="link"
+                                key={command.name}
+                                onClick={() => { setInputText(command.name); }}
+                                className="w-full justify-start bg-white rounded-none pointer-events-auto"
+                            >
+                                {command.name}
+                            </UI.Button>
+                        );
+                    })}
+                </div>
+            )}
+
             <UI.Button
                 size="icon"
                 disabled={!isActive}
