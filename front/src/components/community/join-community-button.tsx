@@ -27,6 +27,7 @@ export const JoinCommunityButton = ({ className, children }: Props) => {
     const [hasMinted, setHasMinted] = useState<boolean>(false);
     const { communityName } = useParams();
 
+    // this code had been added after the hackathon and the jury selection to allow ervery user to test our Dapp
     function generateRandomHandle() {
         const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
         let handle = '';
